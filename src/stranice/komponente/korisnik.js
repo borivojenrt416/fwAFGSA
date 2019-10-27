@@ -8,8 +8,9 @@ export class Korisnik extends Component {
         super(props)
     
         this.state = {
-             korisnik:this.props.user
-             
+             korisnik:this.props.user,
+             kupljeni:[]
+           
         }
     }
     
@@ -63,6 +64,24 @@ uplati=e=>{
     
     document.getElementById("uplata").value=""
 }
+
+istorijaKupljenih=()=>{
+    const {korisnik} = this.state
+    console.log(korisnik)
+    var br = parseInt(korisnik.id)
+    fetch(`http://localhost:4000/korisnici/uzmiProizvode?id=${korisnik.id}`)
+    .then(response=>response.json())
+    .then(response=>{
+        console.log(response.data)
+        this.setState({
+            kupljeni:response.data
+        })
+        
+    })
+}
+componentDidMount(){
+    this.istorijaKupljenih()
+}
     render() 
     
     {
@@ -73,6 +92,8 @@ uplati=e=>{
             Color:'black'
             
     }
+    if(this.state.kupljeni===null || this.state.kupljeni.length===0)
+    {
         return (
             <div>
                 <h1>Dobrodosli, {this.state.korisnik.ime}!</h1>
@@ -110,15 +131,70 @@ uplati=e=>{
               
             </form>
             </div>
-               {/* <div className="dva">
+            <div className="dva">
                    <h1>Istorija kupljenih proizvoda</h1>
-                  
-               
-               </div> */}
+                   <h2>Vasa istorija kupljenih proizvoda je prazna. </h2>
+                   </div>
                 </div>
             </div>
         )
     }
+    else
+    {
+        return (
+            <div>
+                <h1>Dobrodosli, {this.state.korisnik.ime}!</h1>
+                <h3>Vase trenutno stanje na racunu je : {korisnik.novac} RSD</h3>
+                <div className="ispod">
+                    
+                <div className="jedan">
+                    
+                <form className="forma">
+                <h1>Podaci</h1>
+                
+                <label className="labela" for={korisnik.ime}>Vase ime</label><input className="inp" id={korisnik.ime} value={korisnik.ime} type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,ime:e.target.value}
+               })}/><br/> 
+               <label className="labela" for={korisnik.prezime}>Vase prezime</label>  <input className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,prezime:e.target.value}
+               })}/><br/>
+               <label className="labela" for={korisnik.email}>Vas email</label> <input className="inp" id={korisnik.email} disabled value={korisnik.email} type="email" onChange={e=>this.setState({
+                   korisnik:{...korisnik,email:e.target.value}
+               })}/><br/>
+                <label for={korisnik.sifra}>Vasa sifra</label><input className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,sifra:e.target.value}
+               })}/><br/>
+               <label for={korisnik.telefon}>Vas broj telefona</label><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,telefon:e.target.value}
+               })}/><br/>
+               <button type="submit" onClick={this.azuriraj}>Azuriraj</button><br/><br/>
+             
+              
+            </form>
+            <form className="novac">
+                <h1>Uplatite novac</h1>
+                <label for="uplata">Unesite zeljeni iznos za uplatu :</label><input className="inp" id="uplata" type="text" /><br/>
+               <button type="submit" onClick={this.uplati}>Uplati</button><br/><br/>
+              
+            </form>
+            </div>
+               <div className="dva">
+                   <h1>Istorija kupljenih proizvoda</h1>
+                   <table>
+                       <tr>
+                           <th>Slika proizvoda</th><th>Naziv proizvoda</th><th>Opis proizvoda</th><th>Datum kupovine</th><th>Cena proizvoda</th><th>Kupljena kolicina</th>
+                       </tr>
+                   
+                   {this.state.kupljeni.map(k=>(
+                       <tr><th><img src={k.img}/></th><th>{k.nazivPr}</th><th>{k.opisPr}</th><th>{k.datumKupovine}</th><th>{k.cena}</th><th>{k.kolicina}</th></tr>
+                   ))}
+                   </table>
+               </div>
+                </div>
+            </div>
+        )
+    }
+}
 }
 
 export default Korisnik

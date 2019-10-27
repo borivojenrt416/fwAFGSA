@@ -69,7 +69,7 @@ render(){
     </div>
         <h5>{this.state.obj.content}</h5>
         <h3>{this.state.obj.cena}<span>RSD</span></h3>
-        <Link style={vrati}  to="/" >VRATI SE NA GLAVNU STRANU</Link>
+        <Link style={vrati}  to="/" >IDI NA STRANICU SA PROIZVODIMA</Link>
 </div>
     );
     }
@@ -80,7 +80,7 @@ render(){
 
     <h1>
      TRENUTNO NEMAMO U BAZI PROIZVOD SA ZADATIM ID-EM</h1>
-     <Link style={vrati}  to="/" >VRATI SE NA GLAVNU STRANU</Link>
+     <Link style={vrati}  to="/" >IDI NA STRANICU SA PROIZVODIMA</Link>
 </div>
         );
     }

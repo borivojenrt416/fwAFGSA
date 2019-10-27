@@ -66,18 +66,21 @@ app.get("/korisnik/uplati",(req,res)=>{
     
 })
 
-// app.get("/korisnik/dodajProizvode",(req,res)=>{
-//     const {proizvodi,email} = req.query;
-//     const DODAJPROIZVODE=`UPDATE table1 SET proizvodi='${proizvodi}' WHERE email='${email}'`
-//     connection.query(DODAJPROIZVODE,(err,results)=>{
-//         if(err)
-//         {   return res.send(err)}
-//         else{
-//             return res.send("Uspesno dodati proizvodi!")
-//         }
-//     })
+app.get("/korisnici/uzmiProizvode",(req,res)=>{
+    const {id} = req.query;
+    const UZMIPROIZVODE =`SELECT * FROM kupljeniproizvodi WHERE id='${id}'`
+    connection.query(UZMIPROIZVODE,(err,result)=>{
+        if(err)
+        {   return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result
+            })
+        }
+    })
     
-// })
+})
 
 app.get("/korisnici/dodajProizvod",(req,res)=>{
     const {id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img} = req.query;
