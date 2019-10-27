@@ -85,9 +85,7 @@ class Fav extends Component {
         <div className="des">
           {this.state.omiljeno.map(om => (
             <div className="kartica" style={visina} key={om.id}>
-              <button type="button" className="korpa" value={om.title}>
-                🛒
-              </button>
+              
               <button
                 type="button"
                 className="fav"

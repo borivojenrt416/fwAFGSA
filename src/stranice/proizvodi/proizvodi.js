@@ -65,7 +65,7 @@ class Proizvodi extends Component {
     this.setState({
       fav: niz2
      });
-     localStorage.setItem("fav1", JSON.stringify(niz2));
+    localStorage.setItem("fav1", JSON.stringify(niz2));
   }
   else{
     var niz3 = []
@@ -154,22 +154,6 @@ class Proizvodi extends Component {
  
   };
 
-  idiNaDetalje = e => {
-    console.log(e.target.id);
-    var objec = null;
-    for (let k = 0; k < this.state.products.length; k++) {
-      for (let i = 0; i < this.state.products[k].data.length; i++) {
-        if (e.target.id === this.state.products[k].data[i].title) {
-          objec = this.state.products[k].data[i];
-          console.log(this.state.products[k].data[i]);
-        }
-      }
-    }
-
-    var st = JSON.stringify(objec.id)
-    let path = "/product/"+objec.id;
-    this.props.history.push(path);
-  };
 
   render() {
   
@@ -180,7 +164,7 @@ class Proizvodi extends Component {
           <Side
             products={this.state.products}
             dod={this.dodajUOmiljeno}
-            idi={this.idiNaDetalje}
+           
             kupovina={this.kupi}
             azurira = {this.props.azuriraj}
  

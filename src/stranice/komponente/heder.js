@@ -17,7 +17,7 @@ constructor(props){
         return(
         <div className="hed">
            <Link to="/home" style={s}><h1 className="title">🛒SHOP</h1></Link>
-            <Navigacija br = {this.props.brojPr}/>
+            <Navigacija br = {this.props.brojPr}  mom={this.props.moment} odjava={this.props.odjavise} />
         </div>
         );
     }

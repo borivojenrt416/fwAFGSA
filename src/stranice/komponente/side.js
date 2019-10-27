@@ -99,7 +99,7 @@ class Side extends Component {
                 />
               </div>
             ))}
-            <hr />
+            {/* <hr />
             <div className="rad">
               <form>
                 <label htmlFor="ispod50">&lt; 25.000</label>
@@ -132,7 +132,7 @@ class Side extends Component {
                   disabled={this.state.act !== "active"}
                 />
               </form>
-            </div>
+            </div> */}
           </div>
           {/* <div className="gde">
               <h5>GDE NAS MOZETE NACI?</h5><hr />

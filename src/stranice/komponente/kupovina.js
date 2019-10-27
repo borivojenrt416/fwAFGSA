@@ -12,7 +12,8 @@ constructor(props){
     super(props);
     this.state={
         kupljeno:JSON.parse(localStorage.getItem("kupi")),
-        racun:null
+        racun:null,
+        korisnik:JSON.parse(localStorage.getItem("trenutno"))
     };
     }
 
@@ -148,7 +149,64 @@ ponovo=()=>
             console.log(val)
             console.log(this.state.kupljeno)
       }
-
+placanje=()=>{
+  if(this.state.korisnik!==null)
+  {
+    var tk = JSON.stringify(this.state.racun)
+    var b = tk.replace(',','')
+    var c = b.replace('.','')
+    var h = JSON.parse(c)
+    var uInt = parseInt(h)
+    if(uInt<parseInt(this.state.korisnik.novac))
+    {
+      alert('KUPOVINA USPESNO IZVRSENA')
+      var objekat = this.state.korisnik
+      console.log(objekat.novac,typeof(objekat.novac))
+      console.log(uInt)
+      objekat.novac = parseInt(objekat.novac)-uInt
+      console.log(objekat.novac)
+      fetch(`http://localhost:4000/korisnik/uplati?novac=${objekat.novac}&email=${this.state.korisnik.email}`)
+      this.setState({
+        korisnik:objekat
+      })
+      localStorage.setItem("trenutno",JSON.stringify(objekat))
+      var n = 0
+      this.setState({
+        racun:n
+      })
+      
+        console.log("UMANJEN NOVAC!")
+        // var proizvodi = objekat.proizvodi
+        // if(proizvodi===null||proizvodi==="")
+        // {
+        //   proizvodi=JSON.stringify(this.state.kupljeno)
+        // }
+        // else
+        // {
+        //   proizvodi+=JSON.stringify(this.state.kupljeno)
+        // }
+        
+       
+        // fetch(`http://localhost:4000/korisnik/dodajProizvode?proizvodi=${proizvodi}&email=${this.state.korisnik.email}`)
+        
+        // console.log(proizvodi)
+      
+        localStorage.setItem("kupi",null)
+        this.setState({
+          kupljeno:null
+        })
+      this.props.logout()
+    }
+    else
+    {
+      alert("NEMATE DOVOLJNO SREDSTAVA NA RACUNU!")
+    }
+  }
+  else
+  {
+    alert('MORATE DA SE ULOGUJETE DA BI SE IZVRSIO PROCES KUPOVINE!')
+  }
+}
     render(){
       console.log(localStorage.getItem("kupi"))
         const cena2tekst={
@@ -187,7 +245,13 @@ ponovo=()=>
           borderRadius:'25%',
           color:'black'
         }
-      
+        const dugme={
+          float:'left',
+          width:'7vw',
+          marginBottom:'2vw',
+          fontSize:'1.5vw'
+        }
+        console.log(this.state.korisnik)
         console.log(this.state.kupljeno)
         if(this.state.kupljeno!==null){
           if(this.state.kupljeno.length!==0)
@@ -200,9 +264,7 @@ ponovo=()=>
             <div className="des">
               {this.state.kupljeno.map(om => (
                 <div className="kartica" key={om.id}>
-                  <button type="button" className="korpa" value={om.title} onClick={this.props.dodaj}>
-                  ♥
-                  </button>
+                 
                   <button
                     type="button"
                     className="fav"
@@ -235,7 +297,12 @@ ponovo=()=>
           </div>
                           <div className="r" style={stil}>
                             <h3 style={cena2tekst}>UKUPNO ZA PLACANJE : {this.state.racun} <span id="cen2">RSD</span></h3>
+                            
                           </div>
+                          <div>
+                          <button type="submit" style={dugme} onClick={this.placanje}>KUPI</button>
+                          </div>
+                          
                           </div>
         );
               }

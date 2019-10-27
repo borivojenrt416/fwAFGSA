@@ -1,0 +1,24 @@
+.stil{
+float:left;
+width:60%;
+margin-left: auto;
+margin-right: auto;
+margin-top:3vw;
+display:inline-block;
+color:black;
+text-align: center;
+}
+.forma{
+    display: inline-block;
+    text-align: left;
+}
+.inp{
+    margin:1vw 1vw 1vw 0;
+    width:13.5vw;
+}
+
+#levo{
+    color:red;
+    background-color: blue;
+    width:20px;
+}

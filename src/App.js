@@ -14,6 +14,9 @@ import Omiljeno from './stranice/komponente/omiljeno'
 import Fav from './stranice/fav/fav'
 import Product from './stranice/komponente/product'
 import Kupovina from './stranice/komponente/kupovina';
+import LogIn from './stranice/komponente/login'
+import Register from './stranice/komponente/register'
+import Korisnik from './stranice/komponente/korisnik'
 
 class App extends React.Component {
 constructor(props){
@@ -586,8 +589,20 @@ constructor(props){
         ]
       }
     ],
-    broj : localStorage.getItem("brojProizvoda")
+    broj : localStorage.getItem("brojProizvoda"),
+    trenutniKorisnik:JSON.parse(localStorage.getItem("trenutno")),
+    korisnik:{
+      email:"",
+      sifra:""
+    }
   }
+}
+
+promenjenKorisnik=()=>{
+  console.log("promenjenkorisnik")
+  this.setState({
+    trenutniKorisnik:JSON.parse(localStorage.getItem("trenutno"))
+  })
 }
 
 ubaci=()=>{
@@ -614,30 +629,55 @@ promeniState=()=>{
 componentDidMount()
 {
   this.ubaci()
+ 
 }
 
 
+
+logovanje=()=>{
+  const {trenutniKorisnik} = this.state
+  this.setState({
+    trenutniKorisnik:JSON.parse(localStorage.getItem("trenutno"))
+  })
+}
+
+odjavi=()=>{
+  console.log("odjava pokrenuta")
+  const {trenutniKorisnik} = this.state
+  this.setState({
+    trenutniKorisnik:null
+  })
+  localStorage.setItem("kupi",null)
+  localStorage.setItem("brojProizvoda",0)
+  this.setState({
+    broj:0
+  })
+  sessionStorage.setItem("fav1",null)
+  localStorage.setItem("trenutno",null)
+}
 
 
 
   render(){
     this.ubaci()
-
-    
+ 
   
   return (
-
+   
     <div className="App">
-      <Heder brojPr={this.state.broj}/>
+      <Heder brojPr={this.state.broj} moment={this.state.trenutniKorisnik} odjavise={this.odjavi}/>
       <div className="naziv">
       <Switch>
-      <Route exact path="/" component={Home} />
+  <Route exact path="/" render={props=><Proizvodi azuriraj = {this.promeniState} /> }/>
        <Route exact path="/home" component={Home}/>
        <Route exact path="/onama" component={Onama}/>
        <Route exact path="/proizvodi" render={props=><Proizvodi azuriraj = {this.promeniState} />} />
        <Route exact path="/omiljeno" component={Fav}/>
-       <Route exact path="/kupovina" render={props=><Kupovina azuriraj={this.promeniState} />}/>
+       <Route exact path="/kupovina" render={props=><Kupovina azuriraj={this.promeniState} logout={this.odjavi} />}/>
        <Route exact path="/product/:id" component={Product} />
+       <Route exact path="/login" render={props=><LogIn {...props} uloguj={this.logovanje}  />}/>
+       <Route exact path="/register" component={Register} />
+       <Route exact path="/korisnik" render={props=><Korisnik {...props} user={this.state.trenutniKorisnik}  pk={this.promenjenKorisnik} />}></Route>
        <Route component={Error}/>
      </Switch>
      </div>

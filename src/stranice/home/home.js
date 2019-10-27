@@ -8,11 +8,10 @@ class Home extends Component{
 constructor(props){
     super(props);
     this.state={
-        best:JSON.parse(localStorage.getItem("best")),
-       
+        best:JSON.parse(localStorage.getItem("best"))
     }
 }
-  
+
     render(){
       const fav = {
 

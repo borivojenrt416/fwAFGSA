@@ -1,13 +1,15 @@
 import React,{Component} from 'react'
-import {Link} from 'react-router-dom'
+import {BrowserRouter,Route,Link} from 'react-router-dom'
 import './navigacija.css'
+import { Switch } from 'react-router/esm/react-router'
+import Korisnik from './korisnik'
 
 class Navigacija extends Component{
     constructor(props) {
         super(props)
     
         this.state = {
-             broj : localStorage.getItem("brojProizvoda")
+             broj : localStorage.getItem("brojProizvoda"),
         }
     }
     
@@ -33,6 +35,11 @@ class Navigacija extends Component{
                 fontSize:'1.2vw',
                 float:'right'
         }
+        const mali={
+            fontSize:'0.8vw'
+        }
+        if(this.props.mom===null)
+        {
         return(
 
         
@@ -42,7 +49,7 @@ class Navigacija extends Component{
                         <Link to="/home" style={styleLinks}><li>HOME</li></Link>
                         <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
                         <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
-                        <Link to="/login" style={desno}><li>Log in/Register</li></Link>
+                        <Link to="/login" style={desno}><li>Prijava</li></Link>
                         <Link to="/omiljeno" style={desno}><li>♥</li></Link>
                         <Link to="/kupovina" style={desno} ><li>🛒{this.props.br}</li></Link>
                     </ul>
@@ -50,6 +57,27 @@ class Navigacija extends Component{
                 </div>
         );
     }
+    else{
+        return(
+
+        
+
+            <div>
+                
+                <ul className="flex-container">
+                    <Link to="/home" style={styleLinks}><li>HOME</li></Link>
+                    <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
+                    <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
+                    <Link to="/" style={desno} onClick={this.props.odjava}><li>Logout</li></Link>
+                    <Link to="/korisnik" style={desno}><li>{this.props.mom.ime}</li></Link>
+                    <Link to="/omiljeno" style={desno}><li>♥</li></Link>
+                    <Link to="/kupovina" style={desno} user={this.props.mom}><li>🛒{this.props.br}</li></Link>
+                </ul>
+               
+            </div>
+    );
+    }
+}
 }
 
 export default Navigacija;
