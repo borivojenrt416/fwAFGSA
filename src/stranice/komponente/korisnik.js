@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import './korisnik.css'
 import Kartica from './kartica'
 import { Object } from 'core-js'
+import Gde from './gde'
 export class Korisnik extends Component {
     constructor(props) {
         super(props)
@@ -80,6 +81,7 @@ istorijaKupljenih=()=>{
     })
 }
 componentDidMount(){
+    if(this.state.korisnik!==null)
     this.istorijaKupljenih()
 }
     render() 
@@ -92,6 +94,16 @@ componentDidMount(){
             Color:'black'
             
     }
+
+    if(korisnik===null)
+    {
+                return(<div>
+                <h1>Postovani korisnice, molimo Vas da se prijavite na svoj nalog!</h1>
+                <Gde />
+                </div>)
+    }
+    else
+    {
     if(this.state.kupljeni===null || this.state.kupljeni.length===0)
     {
         return (
@@ -105,19 +117,19 @@ componentDidMount(){
                 <form className="forma">
                 <h1>Podaci</h1>
                 
-                <label className="labela" for={korisnik.ime}>Vase ime</label><input className="inp" id={korisnik.ime} value={korisnik.ime} type="text" onChange={e=>this.setState({
+                <label className="labela" htmlFor={korisnik.ime}>Vase ime</label><input className="inp" id={korisnik.ime} value={korisnik.ime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/><br/> 
-               <label className="labela" for={korisnik.prezime}>Vase prezime</label>  <input className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
+               <label className="labela" htmlFor={korisnik.prezime}>Vase prezime</label>  <input className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,prezime:e.target.value}
                })}/><br/>
-               <label className="labela" for={korisnik.email}>Vas email</label> <input className="inp" id={korisnik.email} disabled value={korisnik.email} type="email" onChange={e=>this.setState({
+               <label className="labela" htmlFor={korisnik.email}>Vas email</label> <input className="inp" id={korisnik.email} disabled value={korisnik.email} type="email" onChange={e=>this.setState({
                    korisnik:{...korisnik,email:e.target.value}
                })}/><br/>
-                <label for={korisnik.sifra}>Vasa sifra</label><input className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
+                <label htmlFor={korisnik.sifra}>Vasa sifra</label><input className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,sifra:e.target.value}
                })}/><br/>
-               <label for={korisnik.telefon}>Vas broj telefona</label><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
+               <label htmlFor={korisnik.telefon}>Vas broj telefona</label><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,telefon:e.target.value}
                })}/><br/>
                <button type="submit" onClick={this.azuriraj}>Azuriraj</button><br/><br/>
@@ -126,7 +138,7 @@ componentDidMount(){
             </form>
             <form className="novac">
                 <h1>Uplatite novac</h1>
-                <label for="uplata">Unesite zeljeni iznos za uplatu :</label><input className="inp" id="uplata" type="text" /><br/>
+                <label htmlFor="uplata">Unesite zeljeni iznos za uplatu :</label><input className="inp" id="uplata" type="text" /><br/>
                <button type="submit" onClick={this.uplati}>Uplati</button><br/><br/>
               
             </form>
@@ -152,19 +164,19 @@ componentDidMount(){
                 <form className="forma">
                 <h1>Podaci</h1>
                 
-                <label className="labela" for={korisnik.ime}>Vase ime</label><input className="inp" id={korisnik.ime} value={korisnik.ime} type="text" onChange={e=>this.setState({
+                <label className="labela" htmlFor={korisnik.ime}>Vase ime</label><input className="inp" id={korisnik.ime} value={korisnik.ime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/><br/> 
-               <label className="labela" for={korisnik.prezime}>Vase prezime</label>  <input className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
+               <label className="labela" htmlFor={korisnik.prezime}>Vase prezime</label>  <input className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,prezime:e.target.value}
                })}/><br/>
-               <label className="labela" for={korisnik.email}>Vas email</label> <input className="inp" id={korisnik.email} disabled value={korisnik.email} type="email" onChange={e=>this.setState({
+               <label className="labela" htmlFor={korisnik.email}>Vas email</label> <input className="inp" id={korisnik.email} disabled value={korisnik.email} type="email" onChange={e=>this.setState({
                    korisnik:{...korisnik,email:e.target.value}
                })}/><br/>
-                <label for={korisnik.sifra}>Vasa sifra</label><input className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
+                <label htmlFor={korisnik.sifra}>Vasa sifra</label><input className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,sifra:e.target.value}
                })}/><br/>
-               <label for={korisnik.telefon}>Vas broj telefona</label><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
+               <label htmlFor={korisnik.telefon}>Vas broj telefona</label><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,telefon:e.target.value}
                })}/><br/>
                <button type="submit" onClick={this.azuriraj}>Azuriraj</button><br/><br/>
@@ -173,7 +185,7 @@ componentDidMount(){
             </form>
             <form className="novac">
                 <h1>Uplatite novac</h1>
-                <label for="uplata">Unesite zeljeni iznos za uplatu :</label><input className="inp" id="uplata" type="text" /><br/>
+                <label htmlFor="uplata">Unesite zeljeni iznos za uplatu :</label><input className="inp" id="uplata" type="text" /><br/>
                <button type="submit" onClick={this.uplati}>Uplati</button><br/><br/>
               
             </form>
@@ -181,13 +193,15 @@ componentDidMount(){
                <div className="dva">
                    <h1>Istorija kupljenih proizvoda</h1>
                    <table>
+                       <tbody>
                        <tr>
                            <th>Slika proizvoda</th><th>Naziv proizvoda</th><th>Opis proizvoda</th><th>Datum kupovine</th><th>Cena proizvoda</th><th>Kupljena kolicina</th>
                        </tr>
                    
                    {this.state.kupljeni.map(k=>(
-                       <tr><th><img src={k.img}/></th><th>{k.nazivPr}</th><th>{k.opisPr}</th><th>{k.datumKupovine}</th><th>{k.cena}</th><th>{k.kolicina}</th></tr>
+                       <tr key={k.IDB}><th><img src={k.img}/></th><th>{k.nazivPr}</th><th>{k.opisPr}</th><th>{k.datumKupovine}</th><th>{k.cena}</th><th>{k.kolicina}</th></tr>
                    ))}
+                   </tbody>
                    </table>
                </div>
                 </div>
@@ -195,7 +209,9 @@ componentDidMount(){
         )
     }
 }
+    }
 }
+
 
 export default Korisnik
 

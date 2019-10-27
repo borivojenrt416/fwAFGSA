@@ -279,7 +279,7 @@ placanje=()=>{
                     <h2 className="cenaTekst">
                       Cena : {om.cena} <span id="cen">RSD</span>
                     </h2>
-                    <div class="kol">
+                    <div className="kol">
                     KOLICINA : <input id={"1".concat(JSON.stringify(om.title))} type="number" defaultValue="1" onChange={this.promeniCenu} min="1"/>
                     </div>
                   </div>
