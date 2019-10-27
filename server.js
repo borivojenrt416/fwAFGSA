@@ -26,7 +26,7 @@ app.get("/korisnici/dodaj",(req,res)=>{
     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
     console.log(ime,prezime);
     const DODAJKORISNIKA =`INSERT INTO table1 (ime,prezime,datumRodjenja,email,sifra,telefon) VALUES('${ime}','${prezime}','${datumRodjenja}','${email}','${sifra}','${telefon}')`
-    connection.query(DODAJKORISNIKA,(err,results)=>{
+    connection.query(DODAJKORISNIKA,(err)=>{
         if(err)
         {   return res.send(err)}
         else{
@@ -42,7 +42,7 @@ app.get("/korisnici/azuriraj",(req,res)=>{
     const AZURIRAJKORISNIKA=`UPDATE table1 SET ime='${ime}',
     prezime='${prezime}',
     sifra='${sifra}'  WHERE email='${email}'`
-    connection.query(AZURIRAJKORISNIKA,(err,results)=>{
+    connection.query(AZURIRAJKORISNIKA,(err)=>{
         if(err)
         {   return res.send(err)}
         else{
@@ -56,7 +56,7 @@ app.get("/korisnici/azuriraj",(req,res)=>{
 app.get("/korisnik/uplati",(req,res)=>{
     const {novac,email} = req.query;
     const UPLATINOVAC=`UPDATE table1 SET novac='${novac}' WHERE email='${email}'`
-    connection.query(UPLATINOVAC,(err,results)=>{
+    connection.query(UPLATINOVAC,(err)=>{
         if(err)
         {   return res.send(err)}
         else{
@@ -85,7 +85,7 @@ app.get("/korisnici/uzmiProizvode",(req,res)=>{
 app.get("/korisnici/dodajProizvod",(req,res)=>{
     const {id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img} = req.query;
     const DODAJPROIZVOD =`INSERT INTO kupljeniproizvodi (id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img) VALUES('${id}','${idpr}','${nazivPr}','${opisPr}','${kolicina}','${cena}','${ukupnaCena}','${datumKupovine}','${img}')`
-    connection.query(DODAJPROIZVOD,(err,results)=>{
+    connection.query(DODAJPROIZVOD,(err)=>{
         if(err)
         {   return res.send(err)}
         else{

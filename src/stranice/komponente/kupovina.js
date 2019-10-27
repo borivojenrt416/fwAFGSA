@@ -24,7 +24,7 @@ ponovo=()=>
     {
     for(let i=0;i<this.state.kupljeno.length;i++)
     {
-        // for(let k=0;k<this.state.kupljeno[i].length)
+       
         var a = JSON.stringify(this.state.kupljeno[i].cena)
         var d = a.replace('.','')
         var s = JSON.parse(d)

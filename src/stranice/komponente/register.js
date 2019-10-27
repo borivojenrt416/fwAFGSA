@@ -54,20 +54,6 @@ dodajKorisnika=e=>{
       else
       alert(`KORISNIK VEC POSTOJI SA ADRESOM ${this.state.korisnik.email}`)
     })
-    
-
-
-    // if(brojac===0){
-    //         if(this.state.korisnik.telefon.match("[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2,3}"))
-    //         {
-    //            fetch(`http://localhost:4000/korisnici/dodaj?ime=${korisnik.ime}&prezime=${korisnik.prezime}&datumRodjenja=${korisnik.datumRodjenja}&email=${korisnik.email}&sifra=${korisnik.sifra}&telefon=${korisnik.telefon}`)
-    //             console.log("uspoesno dodat korisnik!")
-    //         }  
-    // }
-    // else
-    // {
-    //     console.log("Vec postoji korisnik sa zadatom email adresom!")
-    // }
 }
 uzmi=()=>{
     const {korisnici} = this.state

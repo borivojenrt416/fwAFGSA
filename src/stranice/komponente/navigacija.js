@@ -13,13 +13,7 @@ class Navigacija extends Component{
         }
     }
     
-    // componentWillUpdate(){
-    //     // this.setState({
-    //     //     broj: localStorage.getItem("brojProizvoda")
-    //     // })
-    //     // this.render()
-    //  
-    // }
+
 
 
     render(){

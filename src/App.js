@@ -652,7 +652,7 @@ odjavi=()=>{
   this.setState({
     broj:0
   })
-  sessionStorage.setItem("fav1",null)
+  localStorage.setItem("fav1",null)
   localStorage.setItem("trenutno",null)
 }
 
