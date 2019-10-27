@@ -108,14 +108,6 @@ ponovo=()=>
                 if("1".concat(JSON.stringify(niz[i].title))===e.target.id)
                 {   
                     pamti=JSON.stringify(niz[i].cena)
-                    // var k = JSON.stringify(niz[i].cena)
-                    // console.log(k)
-                    // var a = k.replace('.','')
-                    // console.log(a)
-                    // var p = JSON.parse(a)
-                    // console.log(p)
-                    // niz[i].cena=(parseInt(p)*parseInt(val)).toString()
-                    // console.log(niz[i].cena);
                 }
                    
             }
@@ -174,22 +166,25 @@ placanje=()=>{
       this.setState({
         racun:n
       })
-      
+         
+      for(let i=0;i<this.state.kupljeno.length;i++)
+      {
+        console.log(this.state.kupljeno[i])
+        var w =document.getElementById("1".concat(JSON.stringify(this.state.kupljeno[i].title))).value
+        var datum = new Date().toLocaleDateString()
+        var vreme = new Date().toLocaleTimeString()
+        var konacno = datum+" "+vreme
+        console.log(datum)
+
+        var uInt = parseInt(JSON.parse(w))
+        var tk = JSON.stringify(this.state.kupljeno[i].cena)
+        var b = tk.replace('.','')
+        var h = JSON.parse(b)
+        var novaCena=uInt*parseInt(h) 
+        var n = novaCena.toLocaleString() 
+        fetch(`http://localhost:4000/korisnici/dodajProizvod?id=${objekat.id}&idpr=${this.state.kupljeno[i].id}&nazivPr=${this.state.kupljeno[i].title}&opisPr=${this.state.kupljeno[i].content}&kolicina=${parseInt(w)}&cena=${this.state.kupljeno[i].cena.toLocaleString()}&ukupnaCena=${n}&datumKupovine=${konacno}&img=${this.state.kupljeno[i].img}`)
+      }
         console.log("UMANJEN NOVAC!")
-        // var proizvodi = objekat.proizvodi
-        // if(proizvodi===null||proizvodi==="")
-        // {
-        //   proizvodi=JSON.stringify(this.state.kupljeno)
-        // }
-        // else
-        // {
-        //   proizvodi+=JSON.stringify(this.state.kupljeno)
-        // }
-        
-       
-        // fetch(`http://localhost:4000/korisnik/dodajProizvode?proizvodi=${proizvodi}&email=${this.state.korisnik.email}`)
-        
-        // console.log(proizvodi)
       
         localStorage.setItem("kupi",null)
         this.setState({
@@ -252,7 +247,7 @@ placanje=()=>{
           fontSize:'1.5vw'
         }
         console.log(this.state.korisnik)
-        console.log(this.state.kupljeno)
+        console.log("asd",this.state.kupljeno)
         if(this.state.kupljeno!==null){
           if(this.state.kupljeno.length!==0)
           {

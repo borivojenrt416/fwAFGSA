@@ -79,7 +79,18 @@ app.get("/korisnik/uplati",(req,res)=>{
     
 // })
 
-
+app.get("/korisnici/dodajProizvod",(req,res)=>{
+    const {id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img} = req.query;
+    const DODAJPROIZVOD =`INSERT INTO kupljeniproizvodi (id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img) VALUES('${id}','${idpr}','${nazivPr}','${opisPr}','${kolicina}','${cena}','${ukupnaCena}','${datumKupovine}','${img}')`
+    connection.query(DODAJPROIZVOD,(err,results)=>{
+        if(err)
+        {   return res.send(err)}
+        else{
+            return res.send("Uspesno dodat proizvod!")
+        }
+    })
+    
+})
 app.get("/korisnici",(req,res)=>{
     connection.query(SELECTALL,(err,result)=>{
         if(err){
