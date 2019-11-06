@@ -6,7 +6,7 @@ const app = express()
 app.use(cors())
 
 const SELECTALL = 'SELECT * FROM table1'
-
+const SVIPROIZVODI='SELECT * FROM proizvodi'
 const connection = mysql.createConnection({
     host:"localhost",
     user:"root",
@@ -22,6 +22,37 @@ app.get("/",(req,res)=>{
    res.send("RADI")
 })
 
+app.get("/korisnici/sviproizvodi",(req,res)=>{
+    console.log(req.body)
+    connection.query(SVIPROIZVODI,(err,result)=>{
+        if(err){
+            return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result
+            })
+        }
+    })
+})
+
+app.get("/korisnici/nasumicni",(req,res)=>{
+
+    const NASUMICNO="SELECT * FROM proizvodi WHERE zaproizvode=1"
+
+
+    connection.query(NASUMICNO,(err,result)=>{
+        if(err){
+            return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result
+            })
+        }
+    })
+})
+
 app.get("/korisnici/dodaj",(req,res)=>{
     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
     console.log(ime,prezime);
@@ -35,6 +66,8 @@ app.get("/korisnici/dodaj",(req,res)=>{
     })
     
 })
+
+
 
 app.get("/korisnici/azuriraj",(req,res)=>{
     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
@@ -79,6 +112,21 @@ app.get("/korisnici/uzmiProizvode",(req,res)=>{
             })
         }
     })
+    
+})
+
+app.get("/korisnici/:tip",(req,res)=>{
+    connection.query(`SELECT * FROM proizvodi WHERE tip=?`,[req.params.tip],(err,result)=>{
+        if(err)
+        {   return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result
+            })
+        }
+    })
+
     
 })
 

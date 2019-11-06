@@ -1,8 +1,12 @@
 import React,{Component} from 'react'
 import Navigacija from './navigacija'
 import {Link} from 'react-router-dom'
-import './heder.css'
+import logo from './logo.png'
+import './heder.scss'
 
+import Searchbar from './searchbar'
+import Prijavanav from './prijavanav'
+import Ispodsearchbara from './ispodsearchbara'
 class Heder extends Component{
 constructor(props){
     super(props);
@@ -11,13 +15,24 @@ constructor(props){
 
     render(){
 
-        const s={
-            textDecoration:'none'
-        }
         return(
         <div className="hed">
-           <Link to="/home" style={s}><h1 className="title">🛒SHOP</h1></Link>
-            <Navigacija br = {this.props.brojPr}  mom={this.props.moment} odjava={this.props.odjavise} />
+            <div className="content">
+            <div className="icon">
+           <Link to="/home"><img className="title" src={logo} /></Link>
+           </div>
+            </div>
+            <div classname="nav"><Navigacija   mom={this.props.moment} odjava={this.props.odjavise} /> 
+            </div>
+            <div className="unos">
+            <Searchbar/>
+            </div>
+            <div className="prijava">
+                <Prijavanav br = {this.props.brojPr}/>
+            </div>
+            <div className="isp">
+            <Ispodsearchbara/>
+            </div>
         </div>
         );
     }

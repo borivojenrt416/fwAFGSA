@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {BrowserRouter,Route,Link} from 'react-router-dom'
-import './navigacija.css'
+import './navigacija.scss'
+import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css"
 import { Switch } from 'react-router/esm/react-router'
 import Korisnik from './korisnik'
 
@@ -12,66 +13,49 @@ class Navigacija extends Component{
              broj : localStorage.getItem("brojProizvoda"),
         }
     }
-    
-
-
-
     render(){
-        const styleLinks = {
-                textDecoration : 'none',
-                fontSize:'1.2vw',
-                Color:'black'
-                
-        }
-
-        const desno={
-            textDecoration : 'none',
-                fontSize:'1.2vw',
-                float:'right'
-        }
-        const mali={
-            fontSize:'0.8vw'
-        }
-        if(this.props.mom===null)
-        {
+   
+        // if(this.props.mom===null)
+        // {
         return(
-
-        
-
-                <div>
+                <div className="lista">
                     <ul className="flex-container">
-                        <Link to="/home" style={styleLinks}><li>HOME</li></Link>
-                        <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
-                        <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
-                        <Link to="/login" style={desno}><li>Prijava</li></Link>
-                        <Link to="/omiljeno" style={desno}><li>♥</li></Link>
-                        <Link to="/kupovina" style={desno} ><li>🛒{this.props.br}</li></Link>
+                        {/* <Link to="/home" ><li>HOME</li></Link>
+                      
+                       
+                         */}
+                        <Link to="/proizvodi/monitor"  ><li>Monitori</li></Link>
+                        <Link to="/proizvodi/klima"  ><li>Klime</li></Link> 
+                        <Link to="/proizvodi/telefon"  ><li>Telefoni</li></Link> 
+                        <Link to="/proizvodi/tablet"  ><li>Tableti</li></Link> 
+                        <Link to="/proizvodi/kamera"  ><li>Kamere</li></Link> 
+                        <Link to="/proizvodi/miš"  ><li>Miševi</li></Link> 
                     </ul>
-                   
+                  
                 </div>
         );
     }
-    else{
-        return(
+    // else{
+    //     return(
 
         
 
-            <div>
+    //         <div>
                 
-                <ul className="flex-container">
-                    <Link to="/home" style={styleLinks}><li>HOME</li></Link>
-                    <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
-                    <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
-                    <Link to="/" style={desno} onClick={this.props.odjava}><li>Logout</li></Link>
-                    <Link to="/korisnik" style={desno}><li>{this.props.mom.ime}</li></Link>
-                    <Link to="/omiljeno" style={desno}><li>♥</li></Link>
-                    <Link to="/kupovina" style={desno} user={this.props.mom}><li>🛒{this.props.br}</li></Link>
-                </ul>
+    //             <ul className="flex-container">
+    //                 {/* <Link to="/home" ><li>HOME</li></Link> */}
+                
+    //                 <Link to="/proizvodi" ><li>PROIZVODI</li></Link>
+    //                 <Link to="/"onClick={this.props.odjava}><li>Logout</li></Link>
+    //                 <Link to="/korisnik" ><li>{this.props.mom.ime}</li></Link>
+    //                 <Link to="/omiljeno" ><li>♥</li></Link>
+    //                 <Link to="/kupovina"  user={this.props.mom}><li>🛒{this.props.br}</li></Link>
+    //             </ul>
                
-            </div>
-    );
-    }
-}
+    //         </div>
+    // );
+    // }
+// }
 }
 
 export default Navigacija;

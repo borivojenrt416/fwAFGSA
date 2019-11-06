@@ -1,0 +1,3 @@
+export const DOHVATI_PROIZVODE='DOHVATI_PROIZVODE';
+export const UZMI_TIP='UZMI_TIP';
+export const SORTIRAJ_TIP='SORTIRAJ_TIP';

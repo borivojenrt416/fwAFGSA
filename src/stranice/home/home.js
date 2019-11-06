@@ -1,5 +1,10 @@
 import React,{Component} from 'react'
 import Gde from '../komponente/gde'
+import './home.scss'
+import Card from '../card'
+import Preporuka from '../komponente/preporuka'
+import Pametanizbor from '../komponente/pametanizbor'
+// import Kategorije from '../komponente/kategorije'
 import {
   Link,
 } from "react-router-dom";
@@ -8,39 +13,60 @@ class Home extends Component{
 constructor(props){
     super(props);
     this.state={
-        best:JSON.parse(localStorage.getItem("best"))
+      proizvodi:[]
     }
 }
 
+componentDidMount()
+{
+  this.pokupiProizvode()
+}
+
+pokupiProizvode=()=>{
+  fetch('http://localhost:4000/korisnici/sviproizvodi')
+  .then(response=>response.json())
+  .then(response=>{
+    this.setState({
+      proizvodi:response.data
+    })
+  })
+}
+
     render(){
-      const fav = {
-
-      }
-        const st={
-            float:'left',
-            width:'70%'
-        }
-        const karta = {
-            height:'26vw'
-        }
-
-        const linkk={
-          textDecoration:'none',
-          border:'1px solid black',
-          padding:'0.5vw',
-          borderRadius:'25%',
-          color:'black'
-        }
-        const visina = {
-          height:'25vw'
-        }
-        console.log(this.state.best)
+    
+     
         return(
-            <div>
-            <h1>Home page</h1>
-            <Gde />
-            <div style={st}>
-            {
+            <div className="sve">
+             <Preporuka proizvodi={this.state.proizvodi}/>
+           
+            {/* <p className="podnaslov">Pametan izbor</p>
+            {this.state.proizvodi.map(proizvod=>{
+              var a = JSON.stringify(proizvod.cena).replace('.','')
+              var b = parseInt(JSON.parse(a))
+              if(JSON.stringify(proizvod.naziv).startsWith('XIAOMI',1))
+              return (
+              <div className="pored">
+                <Card product = {proizvod} />
+                </div>
+              )
+            
+            })}
+           
+            <p className="podnaslov">Izoštri sliku</p>
+            {this.state.proizvodi.map(proizvod=>{
+              var a = JSON.stringify(proizvod.cena).replace('.','')
+              var b = parseInt(JSON.parse(a))
+              if(b>23000 && proizvod.tip==="monitor")
+              return (
+              <div className="pored">
+                <Card product = {proizvod} />
+                </div>
+              )
+            
+            })}
+            
+           
+            {/* {
                 this.state.best.map(bes=>(
                     bes.map(be=>be.map(b=>(
                         <div className="kartica" style = {karta}key={b.id}>
@@ -50,7 +76,7 @@ constructor(props){
                         {/* <button type="button" id={b.id} value={b.title} className="fav" onClick={this.props.prosao}>
                 ♥
               </button> */}
-                        <h1 className="ime">{b.title}</h1> <br />
+                        {/* <h1 className="ime">{b.title}</h1> <br />
                         <div className="opis">
                         <br/><br/><br/><br/>
                           <div className="slika">
@@ -68,8 +94,8 @@ constructor(props){
                     ))
                 )
                 ))
-            }
-            </div>
+            } */} 
+        
             </div>
  
         );
