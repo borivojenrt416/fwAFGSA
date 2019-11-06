@@ -36,22 +36,22 @@ app.get("/korisnici/sviproizvodi",(req,res)=>{
     })
 })
 
-app.get("/korisnici/nasumicni",(req,res)=>{
+// app.get("/korisnici/nasumicni",(req,res)=>{
 
-    const NASUMICNO="SELECT * FROM proizvodi WHERE zaproizvode=1"
+//     const NASUMICNO="SELECT * FROM proizvodi WHERE zaproizvode=1"
 
 
-    connection.query(NASUMICNO,(err,result)=>{
-        if(err){
-            return res.send(err)
-        }
-        else{
-            return res.json({
-                data:result
-            })
-        }
-    })
-})
+//     connection.query(NASUMICNO,(err,result)=>{
+//         if(err){
+//             return res.send(err)
+//         }
+//         else{
+//             return res.json({
+//                 data:result
+//             })
+//         }
+//     })
+// })
 
 app.get("/korisnici/dodaj",(req,res)=>{
     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
@@ -115,6 +115,7 @@ app.get("/korisnici/uzmiProizvode",(req,res)=>{
     
 })
 
+//GET ISPOD JE ZA STRANICU PROIZVODI
 app.get("/korisnici/:tip",(req,res)=>{
     connection.query(`SELECT * FROM proizvodi WHERE tip=?`,[req.params.tip],(err,result)=>{
         if(err)
