@@ -27,9 +27,9 @@ azuriraj=e=>{
     this.setState({
         korisnik:objekat
     })
-    this.props.pk()
+    // this.props.pk()
     }
-    this.props.pk()
+    // this.props.pk()
     this.props.azuriraj(this.state.korisnik.id)
 }
 uplati=e=>{

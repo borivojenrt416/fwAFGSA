@@ -6,7 +6,6 @@ import './product.scss'
 class Product extends Component{
     constructor(props){
         super(props);
-    
         this.state={
                 objekat:null
         }
@@ -33,30 +32,6 @@ class Product extends Component{
             })
         })
     }
-    // componentDidMount(){
-    //     console.log('props',this.props)
-    //     console.log(this.props.match.params.id)
-    //     var trazeniID = this.props.match.params.id
-    //     var objekat=null;
-    //     console.log(this.state.products)
-    //     console.log(trazeniID)
-    //     for(let i=0;i<this.state.products.length;i++)
-    //     {
-    //        console.log(this.state.products[i])
-    //        for(let j=0;j<this.state.products[i].data.length;j++)
-    //        {
-    //         //    console.log(this.state.products[i].data[j])
-    //             if(this.state.products[i].data[j].id===trazeniID)
-    //             objekat = this.state.products[i].data[j]
-    //        }
-    //     }
-
-    //     console.log(objekat)
-    //   this.setState({
-    //       obj:objekat
-    //   })
-    // }
-    
 dodaj=()=>{
     this.props.dodajUKorpu(this.state.objekat,this.props.korpa)
     this.props.vratiBroj(this.props.korpa)

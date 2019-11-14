@@ -23,7 +23,7 @@ export class Prijavanav extends Component {
                 <div>
                     <div className="prijavanav">
                         <Link to="/korisnik" ><li>{this.props.korisnik[0].ime}</li></Link>
-                        <Link to="/login" ><li onClick={this.props.odjavi} >Odjavi se</li></Link>
+                        <Link to="/login" ><li onClick={this.props.odjavi}>Odjavi se</li></Link>
 
                         <Link to="/omiljeno" ><li><i class="far fa-heart"></i></li></Link>
                         <Link to="/kupovina"  ><li><i class="fas fa-shopping-cart"></i>{this.props.broj}</li></Link>
@@ -38,4 +38,4 @@ const mapStateToProps = state => ({
     broj: state.broj.broj
 })
 
-export default connect(mapStateToProps, { odjavi })(Prijavanav)
+export default connect(mapStateToProps, {odjavi})(Prijavanav)

@@ -19,28 +19,27 @@ constructor(props) {
 }
 
 
-prijava=e=>{
-    e.preventDefault()
-    const {korisnik} = this.state
-    console.log(korisnik)
+// prijava=e=>{
+//     e.preventDefault()
+//     const {korisnik} = this.state
+//     console.log(korisnik)
 
-    fetch('http://localhost:4000/korisnici')
-    .then(response=>response.json())
-    .then(response=>{
-        for(let i=0;i<response.data.length;i++)
-        {
-            if(response.data[i].email===korisnik.email && response.data[i].sifra===korisnik.sifra)
-            {
+//     fetch('http://localhost:4000/korisnici')
+//     .then(response=>response.json())
+//     .then(response=>{
+//         for(let i=0;i<response.data.length;i++)
+//         {
+//             if(response.data[i].email===korisnik.email && response.data[i].sifra===korisnik.sifra)
+//             {
 
             
-            console.log(response.data[i])
+//             console.log(response.data[i])
 
-           localStorage.setItem("trenutno",JSON.stringify(response.data[i]))
-            this.props.history.push("/")
-            this.props.uloguj()
-        }}
-    })
-}
+//             this.props.history.push("/")
+//             this.props.uloguj()
+//         }}
+//     })
+// }
 
 render(){
     const {korisnik} = this.state
