@@ -1,22 +1,43 @@
 .sve{
-    margin-top:100px;
+    margin-top:20px;
     width:100%;
-    text-align: center;
 
+    
+
+    .proiz{
+      width: 100%;
+      padding:10px 0;
+      margin-bottom: 20px;
+
+      .proiz1{
+        width:80%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
   .podnaslov{
       font-size:28px;
   }
   .pored{
     display: inline-block;
 }
-form{
-  width:75%;
-  margin-left: auto;
-  margin-right: auto;
-  .kf{
-    width:30%;
-    display:inline-block;
-    text-align: left;
+.kf{
+  width:100%;
+  background-color: rgb(216,216,216);
+  .slct{
+    text-decoration: none;
+  }
+  #sort{
+    font-size: 13px;
+    padding:5px;
+  }
+ form{
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    margin-bottom: 20px;
+    padding:5px 0;
+  
   }
 }
 

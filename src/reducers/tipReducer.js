@@ -14,8 +14,9 @@ export default function(state=initialState,action){
                 tip:action.payload
             }
         case SORTIRAJ_TIP:
+            console.log(action.payload)
             return{
-               
+                ...state,
                 tip:action.payload
             }
             default:

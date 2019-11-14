@@ -23,7 +23,6 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/korisnici/sviproizvodi",(req,res)=>{
-    console.log(req.body)
     connection.query(SVIPROIZVODI,(err,result)=>{
         if(err){
             return res.send(err)
@@ -35,40 +34,62 @@ app.get("/korisnici/sviproizvodi",(req,res)=>{
         }
     })
 })
-
-// app.get("/korisnici/nasumicni",(req,res)=>{
-
-//     const NASUMICNO="SELECT * FROM proizvodi WHERE zaproizvode=1"
-
-
-//     connection.query(NASUMICNO,(err,result)=>{
-//         if(err){
-//             return res.send(err)
-//         }
-//         else{
-//             return res.json({
-//                 data:result
-//             })
-//         }
-//     })
-// })
-
-app.get("/korisnici/dodaj",(req,res)=>{
-    const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
-    console.log(ime,prezime);
-    const DODAJKORISNIKA =`INSERT INTO table1 (ime,prezime,datumRodjenja,email,sifra,telefon) VALUES('${ime}','${prezime}','${datumRodjenja}','${email}','${sifra}','${telefon}')`
-    connection.query(DODAJKORISNIKA,(err)=>{
+app.get("/korisnici/pretraga/:naziv",(req,res)=>{
+    var rec = req.params.naziv.toLowerCase()
+    connection.query(`SELECT * FROM proizvodi WHERE lower(naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
         if(err)
-        {   return res.send(err)}
+        {   return res.send(err)
+        }
         else{
-            return res.send("Uspesno dodat korisnik!")
+            return res.json({
+                data:result
+            })
         }
     })
     
 })
 
+app.get("/korisnici/proizvod/:idpr",(req,res)=>{
+    console.log(req.params.idpr)
+    connection.query(`SELECT * FROM proizvodi WHERE idpr=?`,[req.params.idpr],(err,result)=>{
+        if(err)
+        {   return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result
+            })
+        }
+    })
+    
+})
 
+app.get("/korisnici/pretrazi/:email",(req,res)=>{
+    console.log(req.params.email)
+    connection.query(`SELECT * FROM table1 WHERE email=?`,[req.params.email],(err,result)=>{
+        if(err)
+        {   return res.send(err)
+        }
+        else{
+            return res.json({
+                data:result.length
+            })
+        }
+    })
+    
+})
 
+app.get("/korisnici/dodaj/:ime/:prezime/:datumRodjenja/:email/:sifra/:telefon",(req,res)=>{
+    console.log(req.params.email,req.params.ime,req.params.sifra)
+    connection.query(`INSERT INTO table1 (ime,prezime,datumRodjenja,email,sifra,telefon) VALUES(?,?,?,?,?,?)`,[req.params.ime,req.params.prezime,req.params.datumRodjenja,req.params.email,req.params.sifra,req.params.telefon],(err)=>{
+        if(err)
+        {   return res.send(err)}
+        else{
+            return res.send("Uspesno")
+        }
+    })
+    
+})
 app.get("/korisnici/azuriraj",(req,res)=>{
     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
     console.log(ime,prezime);
@@ -84,12 +105,8 @@ app.get("/korisnici/azuriraj",(req,res)=>{
     })
     
 })
-
-
-app.get("/korisnik/uplati",(req,res)=>{
-    const {novac,email} = req.query;
-    const UPLATINOVAC=`UPDATE table1 SET novac='${novac}' WHERE email='${email}'`
-    connection.query(UPLATINOVAC,(err)=>{
+app.get("/korisnik/uplati/:novac/:email",(req,res)=>{
+    connection.query(`UPDATE table1 SET novac=? WHERE email=?`,[req.params.novac,req.params.email],(err)=>{
         if(err)
         {   return res.send(err)}
         else{
@@ -98,11 +115,8 @@ app.get("/korisnik/uplati",(req,res)=>{
     })
     
 })
-
-app.get("/korisnici/uzmiProizvode",(req,res)=>{
-    const {id} = req.query;
-    const UZMIPROIZVODE =`SELECT * FROM kupljeniproizvodi WHERE id='${id}'`
-    connection.query(UZMIPROIZVODE,(err,result)=>{
+app.get("/korisnici/uzmiProizvode/:id",(req,res)=>{
+    connection.query(`SELECT * FROM kupljeniproizvodi WHERE id=?`,[parseInt(req.params.id)],(err,result)=>{
         if(err)
         {   return res.send(err)
         }
@@ -114,12 +128,11 @@ app.get("/korisnici/uzmiProizvode",(req,res)=>{
     })
     
 })
-
-//GET ISPOD JE ZA STRANICU PROIZVODI
 app.get("/korisnici/:tip",(req,res)=>{
     connection.query(`SELECT * FROM proizvodi WHERE tip=?`,[req.params.tip],(err,result)=>{
         if(err)
-        {   return res.send(err)
+        {   
+            return res.send(err)
         }
         else{
             return res.json({
@@ -130,11 +143,50 @@ app.get("/korisnici/:tip",(req,res)=>{
 
     
 })
+app.get("/korisnici/:email/:lozinka",(req,res)=>{
+    console.log(req.params.email,req.params.lozinka)
+    connection.query(`SELECT * FROM table1 WHERE email=? AND sifra=?`,[req.params.email,req.params.lozinka],(err,korisnik)=>{
+        console.log(res)
+        if(err)
+        {   return res.send(err)
+        }
+        else{
+            return res.json({
+                data:korisnik
+            })
+        }
+    })
 
-app.get("/korisnici/dodajProizvod",(req,res)=>{
-    const {id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img} = req.query;
-    const DODAJPROIZVOD =`INSERT INTO kupljeniproizvodi (id,idpr,nazivPr,opisPr,kolicina,cena,ukupnaCena,datumKupovine,img) VALUES('${id}','${idpr}','${nazivPr}','${opisPr}','${kolicina}','${cena}','${ukupnaCena}','${datumKupovine}','${img}')`
-    connection.query(DODAJPROIZVOD,(err)=>{
+    
+})
+app.get("/korisnici/:ime/:prezime/:email/:sifra/:telefon",(req,res)=>{
+    connection.query(`UPDATE table1 SET ime = ?,
+    prezime=?,
+    sifra=?,
+    telefon=? WHERE email=?`,[req.params.ime,req.params.prezime,req.params.sifra,req.params.telefon,req.params.email],(korisnik,err)=>{
+        if(err)
+        {
+            return res.send(err)
+        }
+        else
+        {
+            return res.json({
+                data:korisnik
+            })
+        }
+    })
+})
+
+app.get("/korisnici/dodajProizvod/:id/:idpr/:nazivPr/:kolicina/:cena/:ukupnaCena/:datumKupovine/:img",(req,res)=>{
+   var s = JSON.stringify(req.params.img)
+    var k = s.split('_').join('/')
+    var n = k.split('"').join('')
+    var q = n.split('\\').join('')
+    console.log(k)
+    console.log(n)
+    console.log(q)
+  
+    connection.query(`INSERT INTO kupljeniproizvodi (id,idpr,nazivPr,kolicina,cena,ukupnaCena,datumKupovine,img) VALUES(?,?,?,?,?,?,?,?)`,[req.params.id,req.params.idpr,req.params.nazivPr,req.params.kolicina,req.params.cena,req.params.ukupnaCena,req.params.datumKupovine,q],(err)=>{
         if(err)
         {   return res.send(err)}
         else{

@@ -9,6 +9,7 @@
         width:190px;
         padding:15px;
         clear:left;
+        clear: right;
 
     }
     .cena{
@@ -28,6 +29,13 @@
         
     }
 
+    .kolic{
+        margin:12px auto;
+        width: 90%;
+        padding:10px;
+       
+        
+    }
     .dodajUKorpu{
         margin:12px auto;
         width: 90%;
@@ -36,6 +44,7 @@
       
         border:0;
         font-size:10px;
+
 
         .korpa{
             font-size: 13px;
@@ -53,7 +62,24 @@
         opacity:50%;
         color: #000;
     }
-
+    .brisi{
+        margin:1px;
+        // position: absolute;
+        float:left;
+        background-color: white;
+        border:0;
+        width:40px;
+        font-size: 25px;
+        opacity:50%;
+        color: #000;
+    }
+    .brs{
+        text-decoration: none;
+        color:black;
+    }
+    .brs:hover{
+        color:red;
+    }
     .omiljeno:hover{
         opacity:100%;
         color:red;
@@ -83,6 +109,7 @@
     }
   .dodajUKorpu:hover{
       opacity: 1;
+      background-color: rgb(70, 100, 139);
   }
 }
 

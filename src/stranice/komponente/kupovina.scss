@@ -1,0 +1,67 @@
+.kupovina{
+    text-align: center;
+    width:100%;
+    .pored{
+        display:inline-block;
+       
+    }
+    .dugmeKupi{
+        width: 10%;
+        background-color: rgb(15, 0, 70);
+        margin-bottom: 20px;
+    }
+    .dugmeKupi:hover{
+        background-color: rgb(33, 0, 153);
+
+    }
+}
+.cena2tekst{
+    font-size: 1.5vw;
+}
+#cen2{
+    position: absolute;
+    font-size: 0.5vw;
+    padding-left:0.2vw;
+}
+.kol{
+    margin-top:1.5vw;
+}
+
+.kol input{
+    width:9vw;
+}
+
+.slika{
+    margin-bottom:1.5vw
+}
+.sve{
+    h1{
+        text-align: center;
+    }
+}
+
+.prazno{
+    width:60%;
+    margin-right: auto;
+    margin-left: auto;;
+    padding:0;
+    background-color: rgb(216, 216, 216);
+    margin-top: 20px;
+    font-size: 24px;
+    .ikonicaKorpe{
+        font-size:175px;
+        text-align: center;
+        margin:0;
+      
+    }
+    p{
+        text-align: center;
+        padding-bottom:25px;
+        margin-top: 0;
+    }
+    .back{
+        color:black;
+        text-align: center;
+        font-size: 15px;
+    }
+}

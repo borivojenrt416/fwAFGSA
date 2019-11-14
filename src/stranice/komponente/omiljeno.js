@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import Gde from './gde'
 
 class Omiljeno extends Component{
 constructor(props){
@@ -22,7 +21,6 @@ popuni
                   (
                       <h2>{n}</h2>
                   ))}
-                <Gde/>
             </div>
         );
     }

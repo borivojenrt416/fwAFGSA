@@ -17,7 +17,7 @@ export class Letizimi extends Component {
                 </div>
               )
             
-            })} */}
+            })} 
             </div>
             </div>
         )

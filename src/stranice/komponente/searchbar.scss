@@ -1,22 +1,51 @@
 input{
-    font-size:20px;
-    padding:4px;
+    font-size:15px;
+    padding:9px;
     width:40%;
     border: none; 
     border:solid 1px #ccc;
     border-radius: 3px;
     
 }
+
 button{
-    font-size: 20px;
-    padding: 6px 12px;
+    font-size: 19px;
+    padding: 7px 12px;
     background-color: black;
     color:white;
     border:0;
     margin-bottom: 0;
 }
-// * {
-//     -webkit-box-sizing: border-box;
-//     -moz-box-sizing: border-box;
-//     box-sizing: border-box;
-// }
+div.vidljivo{
+    position: absolute;
+    display:none;
+}
+input:focus{
+    .vidljivo{
+    display:block;
+    }
+}
+div:focus-within .vidljivo {
+    display: block
+  }
+    .vidljivo{
+        position: absolute;
+
+      
+        width:43%;
+        left:28%;
+        background-color: rgb(255, 255, 255);
+        .unutraLink{
+            padding:5px 3px;
+            text-align: left;
+            font-size: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            .trazeno{
+                text-decoration: none;
+                color:black;
+                
+            }
+        }
+        
+    }
+
