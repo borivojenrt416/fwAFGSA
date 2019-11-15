@@ -55,16 +55,11 @@ class Kupovina extends Component {
     var ukupno = 0
     for (let i = 0; i < niz.length; i++) {
       var w = document.getElementById("1".concat(JSON.stringify(niz[i].naziv))).value
-      console.log(w)
       var uInt = parseInt(JSON.parse(w))
       var tk = JSON.stringify(niz[i].cena)
-      console.log(tk)
       var b = tk.replace('.', '')
-      console.log(b)
       var h = JSON.parse(b)
-      console.log(h)
       ukupno += uInt * parseInt(h)
-
     }
 
     var n = ukupno.toLocaleString()
@@ -76,8 +71,6 @@ class Kupovina extends Component {
       if ("1".concat(JSON.stringify(niz[i].title)) === e.target.id)
         niz[i].cena = JSON.parse(pamti)
     }
-    console.log(val)
-    console.log(this.state.kupljeno)
   }
   placanje = () => {
     if (this.props.korisnik !== null && this.props.korisnik !== undefined) {
@@ -85,25 +78,21 @@ class Kupovina extends Component {
       var b = tk.replace(',', '')
       var c = b.replace('.', '')
       var h = JSON.parse(c)
-      alert(this.props.korisnik[0].novac)
+      alert("Vaše trenutno stanje na računu : " + this.props.korisnik[0].novac)
       var uInt = parseInt(h)
       if (uInt < parseInt(this.props.korisnik[0].novac)) {
-        alert('KUPOVINA USPESNO IZVRSENA')
+        alert('KUPOVINA USPESNO IZVRŠENA')
         var objekat = this.props.korisnik[0]
         objekat.novac = parseInt(objekat.novac) - uInt
-        alert(objekat.novac)
-        console.log(objekat.novac)
+        alert("Vaše stanje na računu nakon kupovine : " + objekat.novac)
         fetch(`http://localhost:4000/korisnik/uplati/${objekat.novac}/${this.props.korisnik[0].email}`)
 
 
         for (let i = 0; i < this.props.korpa.length; i++) {
-          console.log(this.props.korpa[i])
           var w = document.getElementById("1".concat(JSON.stringify(this.props.korpa[i].naziv))).value
-          console.log(typeof (w))
           var datum = new Date().toLocaleDateString()
           var vreme = new Date().toLocaleTimeString()
           var konacno = datum + " " + vreme
-          console.log(datum)
 
           var uInt = parseInt(JSON.parse(w))
           var tk = JSON.stringify(this.props.korpa[i].cena)
@@ -111,24 +100,16 @@ class Kupovina extends Component {
           var h = JSON.parse(b)
           var novaCena = uInt * parseInt(h)
           var n = novaCena.toLocaleString()
-          console.log(n, typeof (n))
-          console.log(this.props.korpa[i].img, typeof (this.props.korpa[i].img))
           var prosledi = JSON.stringify(this.props.korpa[i].img)
           var k = prosledi.split('/').join('_')
 
-          console.log(k)
-
-
-          console.log(this.props.korisnik[0].id, this.props.korpa[i].idpr, this.props.korpa[i].naziv, this.props.korpa[i].opis, w, this.props.korpa[i].cena, n, konacno, this.props.korpa[i].img)
+     
           fetch(`http://localhost:4000/korisnici/dodajProizvod/${this.props.korisnik[0].id}/${this.props.korpa[i].idpr}/${this.props.korpa[i].naziv}/${w}/${this.props.korpa[i].cena}/${n}/${konacno}/${k}`)
             .then(response => console.log(response.json()))
         }
-        console.log("UMANJEN NOVAC!")
         this.props.isprazniKorpu()
         var niz = []
         this.props.vratiBroj(niz)
-
-
       }
       else {
         alert("NEMATE DOVOLJNO SREDSTAVA NA RACUNU!")
@@ -142,10 +123,6 @@ class Kupovina extends Component {
 
 
   render() {
-    console.log(this.props.cena)
-    
-    console.log(this.props.korpa)
-
     if (this.props.korpa !== null) {
       if (this.props.korpa.length !== 0) {
         return (
@@ -158,7 +135,7 @@ class Kupovina extends Component {
 
             ))}
             <h3 className="cena2tekst" >UKUPNO ZA PLAĆANJE : {this.state.racun} <span id="cen2">RSD</span></h3>
-            <button type="submit" className="dugmeKupi" onClick={this.placanje}>KUPI</button>
+           <button type="submit" className="dugmeKupi" onClick={this.placanje}>KUPI</button>
           </div>
 
 

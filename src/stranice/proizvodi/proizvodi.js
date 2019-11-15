@@ -26,12 +26,10 @@ componentWillUpdate(prevProps){
   }
   }
 sort=(e)=>{
-console.log(e.target.value)
 this.props.sortirajTip(this.props.tip,e.target.value)
 }
   render() 
   {
-   console.log(this.props.tip)
     return (
       <div className="sve">
         <div className="kf">

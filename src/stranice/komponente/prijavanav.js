@@ -5,8 +5,6 @@ import './prijavanav.scss'
 import { odjavi } from '../../actions/uloguj'
 export class Prijavanav extends Component {
     render() {
-        console.log(this.props.korisnik)
-        console.log(this.props.broj)
         if (this.props.korisnik === null || this.props.korisnik === undefined) {
             return (
                 <div>

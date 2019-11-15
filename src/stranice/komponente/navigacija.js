@@ -7,7 +7,7 @@ class Navigacija extends Component{
         super(props)
     
         this.state = {
-             broj : localStorage.getItem("brojProizvoda"),
+
         }
     }
     render(){

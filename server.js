@@ -90,21 +90,6 @@ app.get("/korisnici/dodaj/:ime/:prezime/:datumRodjenja/:email/:sifra/:telefon",(
     })
     
 })
-// app.get("/korisnici/azuriraj",(req,res)=>{
-//     const {ime,prezime,datumRodjenja,email,sifra,telefon} = req.query;
-//     console.log(ime,prezime);
-//     const AZURIRAJKORISNIKA=`UPDATE table1 SET ime='${ime}',
-//     prezime='${prezime}',
-//     sifra='${sifra}'  WHERE email='${email}'`
-//     connection.query(AZURIRAJKORISNIKA,(err)=>{
-//         if(err)
-//         {   return res.send(err)}
-//         else{
-//             return res.send("Uspesno azuriran korisnik!")
-//         }
-//     })
-    
-// })
 app.get("/korisnik/uplati/:novac/:email",(req,res)=>{
     connection.query(`UPDATE table1 SET novac=? WHERE email=?`,[req.params.novac,req.params.email],(err)=>{
         if(err)

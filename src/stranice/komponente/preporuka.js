@@ -3,7 +3,6 @@ import Card from '../card'
 import './preporuka.scss'
 export class Preporuka extends Component {
     render() {
-      console.log(this.props.proizvodi)
         return (
             <div className="odeljak">
             <p className="podnaslov">Preporučujemo za Vas</p>

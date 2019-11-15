@@ -18,29 +18,6 @@ constructor(props) {
     }
 }
 
-
-// prijava=e=>{
-//     e.preventDefault()
-//     const {korisnik} = this.state
-//     console.log(korisnik)
-
-//     fetch('http://localhost:4000/korisnici')
-//     .then(response=>response.json())
-//     .then(response=>{
-//         for(let i=0;i<response.data.length;i++)
-//         {
-//             if(response.data[i].email===korisnik.email && response.data[i].sifra===korisnik.sifra)
-//             {
-
-            
-//             console.log(response.data[i])
-
-//             this.props.history.push("/")
-//             this.props.uloguj()
-//         }}
-//     })
-// }
-
 render(){
     const {korisnik} = this.state
     
@@ -64,7 +41,7 @@ render(){
                  <label htmlFor={korisnik.sifra}>Lozinka</label>
                 <input placeholder="Unesite Vašu lozinku..." className="inp" type="password" value={korisnik.sifra} onChange={e=>this.setState({
                    korisnik:{...korisnik,sifra:e.target.value}})}/><br/>
-                  <button type="submit" onClick={()=>this.props.uloguj(this.state.korisnik.email,this.state.korisnik.sifra)}><Link className="lgn" to="/">Prijavi se</Link></button><br/><br/>
+                  <Link className="lgn" to="/"><button type="submit" onClick={()=>this.props.uloguj(this.state.korisnik.email,this.state.korisnik.sifra)}>Prijavi se</button></Link><br/><br/>
             </form>
             <hr/>
             <div className="drm">

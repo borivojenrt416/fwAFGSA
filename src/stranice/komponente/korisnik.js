@@ -20,16 +20,12 @@ azuriraj=e=>{
     if(korisnik.telefon.match("[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2,3}"))
     {
        fetch(`http://localhost:4000/korisnici/${korisnik.ime}/${korisnik.prezime}/${korisnik.email}/${korisnik.sifra}/${korisnik.telefon}`)
-        console.log("uspoesno azuriran korisnik!")
-        localStorage.setItem("trenutno",JSON.stringify(korisnik))
-    console.log(korisnik)
+
     var objekat = korisnik
     this.setState({
         korisnik:objekat
     })
-    // this.props.pk()
     }
-    // this.props.pk()
     this.props.azuriraj(this.state.korisnik.id)
 }
 uplati=e=>{
@@ -40,12 +36,9 @@ uplati=e=>{
     if(staro===null || staro==="")
     staro = 0
     const pare = parseInt(staro)+parseInt(document.getElementById("uplata").value)
-    console.log("KORISNIKOV NOVAC",pare)
-   
     if(pare.toString().match("^[0-9]*$"))
     {
         fetch(`http://localhost:4000/korisnik/uplati/${pare}/${korisnik.email}`)
-        console.log("UPLACEN NOVAC!")
     }
     this.props.azuriraj(korisnik.id)
 }
@@ -64,7 +57,6 @@ componentWillMount(){
 componentDidMount(){
     if(this.props.korisnik!==undefined)
 {
-    console.log(this.props.korisnik[0].id)
     this.props.uzmi(this.props.korisnik[0].id)
 }
 }
@@ -73,10 +65,8 @@ componentDidMount(){
 
     render() 
     {
-      console.log(this.props.istorija)
       const {korisnik} = this.state;
        
-    console.log(korisnik)
     if(this.props.korisnik===undefined)
     {
                 return(

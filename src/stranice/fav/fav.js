@@ -12,7 +12,6 @@ class Fav extends Component {
     };
   }
   render() {
-    console.log(this.props.omiljeno)
     if (this.props.omiljeno !== null) {
       if (this.props.omiljeno.length !== 0) {
         return (
@@ -31,7 +30,7 @@ class Fav extends Component {
           <div>
             <div className="prazno">
               <p className="ikonicaKorpe"><i class="fas fa-shopping-cart"></i></p>
-              <p>Vaša korpa je prazna</p>
+              <p>Trenutno nemate nijedan proizvod na Vašoj listi želji</p>
               <p><Link className="back" to="/home">Vrati se na početnu stranu</Link></p>
             </div>
           </div>

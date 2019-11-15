@@ -1,8 +1,6 @@
 import {UZMI_TIP,SORTIRAJ_TIP} from './types';
 
 export const sortirajTip=(nesto,vrsta)=>dispatch=>{
-     console.log(vrsta)
-     console.log(nesto)
     var niz = nesto;
      for(let i=0;i<niz.length;i++)
      {
@@ -17,7 +15,6 @@ export const sortirajTip=(nesto,vrsta)=>dispatch=>{
          {
          if(b>d)
            {
-            console.log(b,d)
              var temp = niz[j]
              niz[j]=niz[j+1]
              niz[j+1]=temp
@@ -27,7 +24,6 @@ export const sortirajTip=(nesto,vrsta)=>dispatch=>{
          {
            if(b<d)
            {
-            console.log(b,d)
             var temp = niz[j]
             niz[j]=niz[j+1]
             niz[j+1]=temp
@@ -35,7 +31,6 @@ export const sortirajTip=(nesto,vrsta)=>dispatch=>{
          }
        }
       }
-      console.log(niz)
      dispatch({
          type:SORTIRAJ_TIP,
          payload:niz
@@ -44,7 +39,6 @@ export const sortirajTip=(nesto,vrsta)=>dispatch=>{
  
 
 export const uzmiTip=(t)=>dispatch=>{
-    console.log('tip')
     fetch(`http://localhost:4000/korisnici/${t}`)
     .then(response=>response.json())
    .then(tip=>dispatch({

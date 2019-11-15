@@ -18,8 +18,6 @@ export class Home extends Component {
     this.props.dohvatiProizvode();
   }
   render() {
-    console.log(this.props.proizvodi)
-    console.log(this.props.korisnik)
     return (
       <div>
         <div className="preporuka">

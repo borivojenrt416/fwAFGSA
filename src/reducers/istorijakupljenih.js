@@ -6,8 +6,6 @@ const initialState={
 
 
 export default function(state=initialState,action){
-    console.log("istorija...")
-    console.log(state)
     switch(action.type){
         case UZMIISTORIJU:
             return{...state,

@@ -56,9 +56,6 @@ componentDidMount()
 
   render()
   {
-    console.log(this.props.proizvodi)
-    console.log("KORPA",this.props.korpa)
-
   return (
 
     <div className="App">

@@ -53,7 +53,6 @@
 
     .omiljeno{
         margin:1px;
-        // position: absolute;
         float:right;
         background-color: white;
         border:0;
@@ -64,7 +63,6 @@
     }
     .brisi{
         margin:1px;
-        // position: absolute;
         float:left;
         background-color: white;
         border:0;
@@ -72,6 +70,10 @@
         font-size: 25px;
         opacity:50%;
         color: #000;
+    }
+    .brisi:hover{
+        color:red;
+        font-weight: bold;
     }
     .brs{
         text-decoration: none;

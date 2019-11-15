@@ -28,7 +28,6 @@ brisi=()=>{
     render() 
     
     {
-        console.log(this.props.product)
         const {product} = this.props   
             return (
                 <div>

@@ -25,6 +25,15 @@ input:focus{
     display:block;
     }
 }
+.trazeno{
+    text-decoration: none;
+    color:black;
+    .unutraLink:hover{
+        background-color: rgb(189, 189, 189);;
+    }
+    
+}
+
 div:focus-within .vidljivo {
     display: block
   }
@@ -40,11 +49,7 @@ div:focus-within .vidljivo {
             text-align: left;
             font-size: 12px;
             font-family: 'Courier New', Courier, monospace;
-            .trazeno{
-                text-decoration: none;
-                color:black;
-                
-            }
+          
         }
         
     }

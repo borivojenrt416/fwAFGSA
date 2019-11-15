@@ -35,9 +35,10 @@ export class Searchbar extends Component {
                <div className="sp">
                <div className={this.state.niz.length===0? 'skriveno':'vidljivo'}>
                    {this.state.niz.map(n=>(
+                       <Link className="trazeno" to={"/product/"+n.idpr} onClick={this.isprazni}>
                        <div className="unutraLink">
-                        <Link className="trazeno" to={"/product/"+n.idpr} onClick={this.isprazni}>{n.naziv}</Link><br/>
-                        </div>
+                        {n.naziv}<br/>
+                        </div></Link>
                    )   
                    )}
                </div>

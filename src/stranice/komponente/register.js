@@ -13,8 +13,7 @@ constructor(props) {
              datumRodjenja:null,
              telefon:""
          },
-         vraceno:0,
-         korisnici:[]
+         vraceno:0
     }
 }
 dodajKorisnika=e=>{
@@ -32,13 +31,10 @@ dodajKorisnika=e=>{
                     fetch(`http://localhost:4000/korisnici/pretrazi/${korisnik.email}`)
                     .then(response=>response.json())
                     .then(broj=>{
-                        // this.setState({
-                        //   vraceno:broj.data
-                        // })
-                        console.log(broj)
                         if(broj.data===0)
                         {
                             fetch(`http://localhost:4000/korisnici/dodaj/${korisnik.ime}/${korisnik.prezime}/${korisnik.datumRodjenja}/${korisnik.email}/${korisnik.sifra}/${korisnik.telefon}`)
+                            alert("USPESNO STE SE REGISTROVALI NA SAJT")
                         }
                         else
                         {
@@ -51,21 +47,6 @@ dodajKorisnika=e=>{
                 }  
       }
     
-            
-
-uzmi=()=>{
-    const {korisnici} = this.state
-    fetch('http://localhost:4000/korisnici')
-    .then(response=>response.json())
-    .then(response=>{
-        for(let i=0;i<response.data.length;i++)
-        if(
-            response.data[i].email==='d@gmail.com'
-        )
-        console.log("jbg")
-    })
-    console.log(korisnici)
-}
 
 
 render(){

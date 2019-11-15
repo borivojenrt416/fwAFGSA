@@ -13,7 +13,6 @@ class Obrisan extends Component{
     }
 
     componentWillMount(){
-        console.log(this.props.match.params.id)
         fetch(`http://localhost:4000/korisnici/proizvod/${this.props.match.params.id}`)
         .then(response=>response.json())
         .then(vrati=>{
@@ -24,7 +23,6 @@ class Obrisan extends Component{
     }
 
 render(){
-    console.log(this.state.objekat)
     if(this.state.objekat!==undefined&&this.state.objekat!==null)
     {
     return(
