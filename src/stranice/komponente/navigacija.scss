@@ -7,16 +7,21 @@
     margin:auto;
   
     li{
-        
         list-style-type: none;
-        padding:1.5vw;
+        padding-right:1.5vw;
+        margin-bottom: 10px;
         font-weight: bold;
         display:inline-block;
         color:rgb(173, 173, 173);
         font-family: Arial, Helvetica, sans-serif;
         font-size:18px;
        
-    }   
+    }  
+    .act{
+        color:white;
+        font-size: 20px;
+        margin-bottom: 7px;
+    } 
 }
 
 }

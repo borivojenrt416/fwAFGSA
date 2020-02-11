@@ -1,24 +1,31 @@
 .card{
     border:0.5px solid rgb(173, 173, 173);
-    width:100%;
+    width:250px;
     text-align: center;
     color:black;
     background-color: white;
     position: relative;
     img{
-        width:190px;
-        padding:15px;
+        width:200px;
+        padding:5px;
         clear:left;
         clear: right;
 
     }
     .cena{
-        font-size:12px;
+        font-size:16px;
         text-align: left;   
         color:black;
     }
-    .naziv{
-        font-size: 10px;
+    .Naziv{
+    height: 30px;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+
+    h5{
+        font-size: 16px;
+    }
     }
  
 
@@ -39,11 +46,11 @@
     .dodajUKorpu{
         margin:12px auto;
         width: 90%;
-        padding:10px;
+        padding:14px;
         background-color: rgb(41, 59, 82);
       
         border:0;
-        font-size:10px;
+        font-size:16px;
 
 
         .korpa{
@@ -104,7 +111,7 @@
 
            
         }
-        .linkud:hover{
+        .linkud:hover .detalj{
             background-color: rgb(230, 230, 230);
             opacity:1%;
         }

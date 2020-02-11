@@ -20,7 +20,6 @@ constructor(props) {
 
 render(){
     const {korisnik} = this.state
-    
     return(
             <div className="stil">
                 <div className="levoL">

@@ -37,11 +37,13 @@ export class Card extends Component {
                     <div className="card">
                    <button type="button" id="" value="" className="omiljeno" onClick={this.omiljeno}><i class="far fa-heart"></i></button>
                    <div className="bezfloat">
-                    <img src={product.img}/>
-                        <h5 className="naziv">{product.naziv}</h5>
+                    <img src={product.image}/>
+                    <div className="Naziv">
+                        <h5>{product.Naziv}</h5>
+                        </div>
                         <div className="linija">
                         <hr />
-                        <p className="cena">Cena: {product.cena}  RSD</p>
+                        <p className="cena">Cena: {product.Cena}  RSD</p>
                         </div>
                         </div>
                         <button type="submit" className="dodajUKorpu" id={product.naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i class="fas fa-cart-plus"></i></span></button>

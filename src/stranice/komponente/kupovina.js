@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Kupovinacard from '../kupovinacard'
 import { isprazniKorpu } from "../../actions/dodajUKorpu"
-import { vratiBroj, filtriraj, kolicinaputacena } from "../../actions/dodajUKorpu"
+import { vratiBroj, filtriraj, kolicinaputacena, racunaj } from "../../actions/dodajUKorpu"
 import {
   Link,
 } from "react-router-dom";
@@ -12,35 +12,38 @@ class Kupovina extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      racun: null,
+
       kolicine:[]
     };
   }
 
   ponovo = () => {
-    var ukupno = 0
-    if (this.props.korpa.length !== 0) {
-      for (let i = 0; i < this.props.korpa.length; i++) {
-        var l = document.getElementById("1".concat(JSON.stringify(this.props.korpa[i].naziv))).value
-        var a = JSON.stringify(this.props.korpa[i].cena)
-        var d = a.replace('.', '')
-        var s = JSON.parse(d)
-        ukupno += parseInt(s)*parseInt(l)
-      }
+  
+    // var ukupno = 0
+    // if (this.props.korpa.length !== 0) {
+    //   for (let i = 0; i < this.props.korpa.length; i++) {
+    //     var l = document.getElementById("1".concat(JSON.stringify(this.props.korpa[i].proizvod.naziv))).value
+    //     var a = JSON.stringify(this.props.korpa[i].proizvod.cena)
+    //     var d = a.replace('.', '')
+    //     var s = JSON.parse(d)
+    //     ukupno += parseInt(s)*parseInt(this.props.korpa[i].kolicina)
+    //   }
 
-      var n = ukupno.toLocaleString()
-      this.setState({
-        racun: n
-      })
-    }
+    //   var n = ukupno.toLocaleString()
+    //   this.setState({
+    //     racun: n
+    //   })
+    // }
+    this.props.racunaj(this.props.korpa);
 
   }
 
-  removeItem = (proizvod, novac) => {
-    this.props.filtriraj(this.props.korpa, proizvod, this.state.racun, novac)
+  removeItem = (proizvod) => {
+    this.props.filtriraj(this.props.korpa, proizvod)
   };
   componentDidMount() {
-    this.ponovo()
+    this.props.racunaj(this.props.korpa);
+
   }
   promeniCenu = (e) => {
     var pamti = ""
@@ -73,68 +76,70 @@ class Kupovina extends Component {
     }
   }
   placanje = () => {
-    if (this.props.korisnik !== null && this.props.korisnik !== undefined) {
-      var tk = JSON.stringify(this.state.racun)
-      var b = tk.replace(',', '')
-      var c = b.replace('.', '')
-      var h = JSON.parse(c)
-      alert("Vaše trenutno stanje na računu : " + this.props.korisnik[0].novac)
-      var uInt = parseInt(h)
-      if (uInt < parseInt(this.props.korisnik[0].novac)) {
-        alert('KUPOVINA USPESNO IZVRŠENA')
-        var objekat = this.props.korisnik[0]
-        objekat.novac = parseInt(objekat.novac) - uInt
-        alert("Vaše stanje na računu nakon kupovine : " + objekat.novac)
-        fetch(`http://localhost:4000/korisnik/uplati/${objekat.novac}/${this.props.korisnik[0].email}`)
+    // if (this.props.korisnik !== null && this.props.korisnik !== undefined) {
+    //   var tk = JSON.stringify(this.state.racun)
+    //   var b = tk.replace(',', '')
+    //   var c = b.replace('.', '')
+    //   var h = JSON.parse(c)
+    //   alert("Vae trenutno stanje na racunu : " + this.props.korisnik[0].novac)
+    //   var uInt = parseInt(h)
+    //   if (uInt < parseInt(this.props.korisnik[0].novac)) {
+    //     alert('KUPOVINA USPESNO IZVRENA')
+    //     var objekat = this.props.korisnik[0]
+    //     objekat.novac = parseInt(objekat.novac) - uInt
+    //     alert("Vae stanje na racunu nakon kupovine : " + objekat.novac)
+    //     fetch(`http://localhost:4000/korisnik/uplati/${objekat.novac}/${this.props.korisnik[0].email}`)
 
 
-        for (let i = 0; i < this.props.korpa.length; i++) {
-          var w = document.getElementById("1".concat(JSON.stringify(this.props.korpa[i].naziv))).value
-          var datum = new Date().toLocaleDateString()
-          var vreme = new Date().toLocaleTimeString()
-          var konacno = datum + " " + vreme
+    //     for (let i = 0; i < this.props.korpa.length; i++) {
+    //       var w = document.getElementById("1".concat(JSON.stringify(this.props.korpa[i].naziv))).value
+    //       var datum = new Date().toLocaleDateString()
+    //       var vreme = new Date().toLocaleTimeString()
+    //       var konacno = datum + " " + vreme
 
-          var uInt = parseInt(JSON.parse(w))
-          var tk = JSON.stringify(this.props.korpa[i].cena)
-          var b = tk.replace('.', '')
-          var h = JSON.parse(b)
-          var novaCena = uInt * parseInt(h)
-          var n = novaCena.toLocaleString()
-          var prosledi = JSON.stringify(this.props.korpa[i].img)
-          var k = prosledi.split('/').join('_')
+    //       var uInt = parseInt(JSON.parse(w))
+    //       var tk = JSON.stringify(this.props.korpa[i].cena)
+    //       var b = tk.replace('.', '')
+    //       var h = JSON.parse(b)
+    //       var novaCena = uInt * parseInt(h)
+    //       var n = novaCena.toLocaleString()
+    //       var prosledi = JSON.stringify(this.props.korpa[i].img)
+    //       var k = prosledi.split('/').join('_')
 
      
-          fetch(`http://localhost:4000/korisnici/dodajProizvod/${this.props.korisnik[0].id}/${this.props.korpa[i].idpr}/${this.props.korpa[i].naziv}/${w}/${this.props.korpa[i].cena}/${n}/${konacno}/${k}`)
-            .then(response => console.log(response.json()))
-        }
-        this.props.isprazniKorpu()
-        var niz = []
-        this.props.vratiBroj(niz)
-      }
-      else {
-        alert("NEMATE DOVOLJNO SREDSTAVA NA RACUNU!")
-      }
-    }
-    else {
-      alert('MORATE DA SE ULOGUJETE DA BI SE IZVRSIO PROCES KUPOVINE!')
-    }
+    //       fetch(`http://localhost:4000/korisnici/dodajProizvod/${this.props.korisnik[0].id}/${this.props.korpa[i].idpr}/${this.props.korpa[i].naziv}/${w}/${this.props.korpa[i].cena}/${n}/${konacno}/${k}`)
+    //         .then(response => console.log(response.json()))
+    //     }
+    //     this.props.isprazniKorpu()
+    //     var niz = []
+    //     this.props.vratiBroj(niz)
+    //   }
+    //   else {
+    //     alert("NEMATE DOVOLJNO SREDSTAVA NA RACUNU!")
+    //   }
+    // }
+    // else {
+    //   alert('MORATE DA SE ULOGUJETE DA BI SE IZVRSIO PROCES KUPOVINE!')
+    // }
   }
 
 
 
   render() {
+    console.log(this.props.korpa)
+    console.log(this.props.cena)
     if (this.props.korpa !== null) {
       if (this.props.korpa.length !== 0) {
         return (
           <div className="kupovina">
-            <p>Proizvodi koje želite da kupite</p>
+            <p>Proizvodi koje elite da kupite</p>
             {this.props.korpa.map(k => (
               <div className="pored">
                 <Kupovinacard product={k} vrsta="korpa" remove={this.removeItem} poz={this.ponovo} vratiKolicinu={this.vrati} />
               </div>
 
             ))}
-            <h3 className="cena2tekst" >UKUPNO ZA PLAĆANJE : {this.state.racun} <span id="cen2">RSD</span></h3>
+            <h3 className="cena2tekst" >UKUPNO ZA PLACANJE : {this.props.cena} <span id="cen2">RSD</span></h3>
            <button type="submit" className="dugmeKupi" onClick={this.placanje}>KUPI</button>
           </div>
 
@@ -146,8 +151,8 @@ class Kupovina extends Component {
           <div>
             <div className="prazno">
               <p className="ikonicaKorpe"><i class="fas fa-shopping-cart"></i></p>
-              <p>Vaša korpa je prazna</p>
-              <p><Link className="back" to="/home">Vrati se na početnu stranu</Link></p>
+              <p>Vaa korpa je prazna</p>
+              <p><Link className="back" to="/home">Vrati se na pocetnu stranu</Link></p>
 
 
 
@@ -165,7 +170,8 @@ const mapStateToProps = state => ({
   korisnik: state.korisnik.korisnik,
   istorija: state.istorija,
   cena: state.cena.cena
+
 })
 
 
-export default connect(mapStateToProps, { isprazniKorpu, vratiBroj, filtriraj, kolicinaputacena })(Kupovina)
+export default connect(mapStateToProps, { isprazniKorpu, vratiBroj, filtriraj, kolicinaputacena, racunaj })(Kupovina)

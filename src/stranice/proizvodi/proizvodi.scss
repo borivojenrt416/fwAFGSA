@@ -8,18 +8,53 @@
       width: 100%;
       padding:10px 0;
       margin-bottom: 20px;
-
+      margin:auto;
       .proiz1{
         width:80%;
-        margin-right: auto;
         margin-left: auto;
+        margin-right: auto;
+      }
+      .proiz1,.checkbox{
+        display:inline-block;
+      }
+      .checkbox{
+        width:17%;
+        vertical-align: top;
+     
+       .inside{
+         width:60%;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 25px;
+         font-size: 18px;
+         input{
+         margin-top: 30px;
+         text-align: center;
+        }
+        // label{
+        //  padding-top: 50px;
+        // }
+       }
+       input{
+         margin:auto;
+         width:18%;
+         text-align: left;
+       }
+    
+        
+          
+     
       }
     }
+    
   .podnaslov{
       font-size:28px;
   }
   .pored{
     display: inline-block;
+    margin:10px 10px 10px 0;
+ 
+
 }
 .kf{
   width:100%;
@@ -27,16 +62,22 @@
   .slct{
     text-decoration: none;
   }
-  #sort{
-    font-size: 13px;
-    padding:5px;
-  }
  form{
     margin-left: auto;
     margin-right: auto;
-    width:80%;
+    width:50%;
     margin-bottom: 20px;
     padding:5px 0;
+    .filtriranje{
+      display:inline-block;
+      width:50%;
+      margin:5px auto;
+      select{
+        font-size: 14px;
+        padding:4px;
+      
+      }
+    }
   
   }
 }

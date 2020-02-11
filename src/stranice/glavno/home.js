@@ -6,7 +6,7 @@ import './home.scss'
 
 import { connect } from 'react-redux'
 import { dohvatiProizvode } from '../../actions/proizvodiAkcije'
-
+import {uzmiTip} from '../../actions/tipAkcija'
 export class Home extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +16,13 @@ export class Home extends Component {
   }
   componentWillMount() {
     this.props.dohvatiProizvode();
+    console.log("pozvano")
+    localStorage.setItem("tip","");
+    this.props.uzmiTip();
+
+  
   }
+
   render() {
     return (
       <div>
@@ -34,4 +40,4 @@ const mapStateToProps = state => ({
   proizvodi: state.proizvodi.proizvodi,
   korisnik: state.korisnik.korisnik
 })
-export default connect(mapStateToProps, { dohvatiProizvode })(Home);
+export default connect(mapStateToProps, { dohvatiProizvode, uzmiTip })(Home);

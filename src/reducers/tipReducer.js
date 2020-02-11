@@ -1,4 +1,4 @@
-import {UZMI_TIP,SORTIRAJ_TIP} from '../actions/types'
+import {UZMI_TIP,SORTIRAJ_TIP,CENA_TIP, FILTERI} from '../actions/types'
 
 const initialState={
     tip:[]
@@ -14,6 +14,19 @@ export default function(state=initialState,action){
                 tip:action.payload
             }
         case SORTIRAJ_TIP:
+            console.log(action.payload)
+            return{
+                ...state,
+                tip:action.payload
+            }
+        
+        case CENA_TIP:
+            console.log(action.payload)
+            return{
+                ...state,
+                tip:action.payload
+            }
+        case FILTERI:
             console.log(action.payload)
             return{
                 ...state,

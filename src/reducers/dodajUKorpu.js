@@ -1,4 +1,5 @@
-import {DODAJUKORPU,VRATIPORUKU, ISPRAZNIKORPU, VRATIBROJKORPA,FILTRIRANJEKORPE,KOLICINA} from '../actions/types'
+import {DODAJUKORPU,VRATIPORUKU, ISPRAZNIKORPU, VRATIBROJKORPA,FILTRIRANJEKORPE,KOLICINA, RACUN} from '../actions/types'
+
 
 const initialState={
     poruka:"",
@@ -44,10 +45,14 @@ export default function(state=initialState,action){
                                     ...state,
                                     cena:action.c
                                 }
+                                case RACUN:
+                                    return{
+                                        ...state,
+                                        cena:action.c,
+                                    }
                     
             default:
         return state;
     }
 
 }
-
