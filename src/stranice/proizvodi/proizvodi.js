@@ -133,17 +133,6 @@ componentWillUpdate(prevProps){
                         <option value="Dpreko200" >&gt; 200 000</option>
                     </select></Link>
                     </div>
-                    {/* 
-
-       
-                    <td>  <label htmlFor="operativniSistem">OS </label>
-                 <Link className="slct"><select id="operativniSistem" onChange={this.cenaDo}>
-                        <option value="Free DOS" >Free DOS</option>
-                        <option value="Windows 10" >Windows 10</option>
-                        <option value="Nema" >Bez operativnog sistema</option>
-                    </select></Link></td>
-                    </tr>
-                    </table> */}
                 </form>
                 </div>
        <div>
@@ -187,10 +176,14 @@ componentWillUpdate(prevProps){
             </div>
             <div className="inside">
           <label>Graficka karta </label><br/>
-          <input type="checkbox" name="Intel" id="Intel" value="Intel"/>
-            <label htmlFor="Intel">Intel</label><br/>
-            <input type="checkbox" name="GeForce" id="GeForce" value="GeForce"/>
-            <label htmlFor="GeForce">GeForce</label><br/><br/><hr/>
+            <input type="checkbox" name="GeForce GTX 1050" id="GeForce GTX 1050" value="GeForce GTX 1050"/>
+            <label htmlFor="GeForce GTX 1050">GeForce GTX 1050</label><br/><br/><hr/>
+            <input type="checkbox" name="GeForce GT 720" id="GeForce GT 720" value="GeForce GT 720"/>
+            <label htmlFor="GeForce GT 720">GeForce GT 720</label><br/><br/><hr/>
+            <input type="checkbox" name="Intel® UHD Graphics 630" id="Intel® UHD Graphics 630" value="Intel® UHD Graphics 630"/>
+            <label htmlFor="Intel® UHD Graphics 630">Intel® UHD Graphics 630</label><br/><br/><hr/>
+            <input type="checkbox" name="GeForce GTX 1060" id="GeForce GTX 1060" value="GeForce GTX 1060"/>
+            <label htmlFor="GeForce GTX 1060">GeForce GTX 1060</label><br/><br/><hr/>
             </div>
             <div className="inside">
               <label>Namena</label><br/>
@@ -201,14 +194,23 @@ componentWillUpdate(prevProps){
             </div>
             <div className="inside">
             <label>Operativni sistem</label><br/>
-              {/* <input type="checkbox" name="Bez" value="Bez"/>
-            <label for="Bez">Bez operativnog sistema</label><br/> */}
-            <input type="checkbox" name="Bez" id="Bez" value="Bez"/>
+            <input type="checkbox" name="Bez" id="Bez" value="Nema operativni sistem"/>
             <label htmlFor="Bez">Bez operativnog sistema</label><br/>
             <input type="checkbox" name="Windows" id="Windows" value="Windows"/>
             <label htmlFor="Windows">Windows 10</label><br/>
             <input type="checkbox" name="Free DOS 2.0" id="Free DOS 2.0"  value="Free DOS 2.0"/>
             <label htmlFor="Free DOS 2.0">Free DOS 2.0</label><br/><br/><hr/>
+            </div>
+            <div className="inside">
+            <label>HDD/SSD</label><br/>
+            <input type="checkbox" name="500GB HDD" id="500GB HDD" value="500GB HDD"/>
+            <label htmlFor="500GB HDD">500GB HDD</label><br/>
+            <input type="checkbox" name="1TB HDD" id="1TB HDD" value="1TB HDD"/>
+            <label htmlFor="1TB HDD">1TB HDD</label><br/>
+            <input type="checkbox" name="256GB SSD" id="256GB SSD" value="256GB SSD"/>
+            <label htmlFor="256GB SSD">256GB SSD</label><br/>
+            <input type="checkbox" name="512GB SSD" id="512GB SSD"  value="512GB SSD"/>
+            <label htmlFor="512GB SSD">512GB SSD</label><br/><br/><hr/>
             </div>
            </div>
          <div className="proiz1">
