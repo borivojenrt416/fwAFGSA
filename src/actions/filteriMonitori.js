@@ -187,27 +187,28 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
         var nizDijagonala=[]
         var dijagonalaFilteri=[]
         for (let filterIndex = 0; filterIndex < filteri.length; filterIndex++) {
-          if (filteri[filterIndex] === "21&quot;") {
+          if (filteri[filterIndex] === "21\"") {
             dijagonala = true;
             dijagonalaFilteri.push(filteri[filterIndex]);
           }
-          if (filteri[filterIndex] === "23&quot;") {
+          if (filteri[filterIndex] === "23\"") {
             dijagonala = true;
             dijagonalaFilteri.push(filteri[filterIndex]);
           }
-          if (filteri[filterIndex] === "24&quot;") {
+          if (filteri[filterIndex] === "24\"") {
             dijagonala = true;
             dijagonalaFilteri.push(filteri[filterIndex]);
           }
-          if (filteri[filterIndex] === "27&quot;") {
+          if (filteri[filterIndex] === "27\"") {
             dijagonala = true;
             dijagonalaFilteri.push(filteri[filterIndex]);
           }
-          if (filteri[filterIndex] === "42&quot;") {
+          if (filteri[filterIndex] === "42\"") {
             dijagonala = true;
             dijagonalaFilteri.push(filteri[filterIndex]);
           }
         }
+        console.log("Nadjena dijagonala?",dijagonala)
         if (dijagonala)
         nizDijagonala = filtrirajPoDijagonali(dijagonalaFilteri, niz2);
         if (!dijagonala) nizDijagonala = niz2;
