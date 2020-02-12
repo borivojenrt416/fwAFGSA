@@ -19,7 +19,7 @@ constructor(props){
            <Link to="/home"><img className="title" src={logo} /></Link>
            </div>
             </div>
-            <div classname="nav"><Navigacija/> 
+            <div className="nav"><Navigacija/> 
             </div>
             <div className="unos">
             <Searchbar/>

@@ -22,16 +22,16 @@ export class Red4 extends Component {
         return (
             <div className="red4">
                 <div className="pl">
-                    <Link className="placanje"><img src={visa} /></Link>
-                    <Link className="placanje"><img src={mastercard} /></Link>
-                    <Link className="placanje"><img src={maestrocard} /></Link>
-                    <Link className="placanje"><img src={dinacard} /></Link>
-                    <Link className="placanje"><img src={komercijalnabanka} /></Link>
-                    <Link className="placanje"><img src={raiffeisen} /></Link>
-                    <Link className="placanje"><img src={bancaintesa} /></Link>
-                    <Link className="placanje"><img src={wspay} /></Link>
-                    <Link className="placanje"><img className="veliko" src={verifiedbyvisa} /></Link>
-                    <Link className="placanje"><img src={mastercardsecurecode} /></Link>
+                    <Link to="#" className="placanje"><img src={visa} /></Link>
+                    <Link to="#" className="placanje"><img src={mastercard} /></Link>
+                    <Link to="#" className="placanje"><img src={maestrocard} /></Link>
+                    <Link to="#" className="placanje"><img src={dinacard} /></Link>
+                    <Link to="#" className="placanje"><img src={komercijalnabanka} /></Link>
+                    <Link to="#" className="placanje"><img src={raiffeisen} /></Link>
+                    <Link to="#" className="placanje"><img src={bancaintesa} /></Link>
+                    <Link to="#" className="placanje"><img src={wspay} /></Link>
+                    <Link to="#" className="placanje"><img className="veliko" src={verifiedbyvisa} /></Link>
+                    <Link to="#" className="placanje"><img src={mastercardsecurecode} /></Link>
                     <div className="tekst">
                         <p>
                             Sve cene na ovom sajtu iskazane su u dinarima. PDV je uračunat u cenu.
@@ -44,11 +44,11 @@ export class Red4 extends Component {
                 </div>
                 <div className="mreze">
                     <p>Pratite nas na društvenim mrežama :</p>
-                    <Link className="mreza"><img src={fb} /></Link>
-                    <Link className="mreza"><img src={instagram} /></Link>
-                    <Link className="mreza"><img className="spec" src={youtube} /></Link>
-                    <Link className="mreza"><img src={twitter} /></Link>
-                    <Link className="mreza"><img src={linkedin} /></Link>
+                    <Link to="#" className="mreza"><img src={fb} /></Link>
+                    <Link to="#"className="mreza"><img src={instagram} /></Link>
+                    <Link to="#" className="mreza"><img className="spec" src={youtube} /></Link>
+                    <Link to="#" className="mreza"><img src={twitter} /></Link>
+                    <Link to="#" className="mreza"><img src={linkedin} /></Link>
                 </div>
                 <div className="copyright">
                     <p>Copyright ©2019. Sva prava su zadržana.</p>

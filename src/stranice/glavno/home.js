@@ -18,7 +18,7 @@ export class Home extends Component {
     this.props.dohvatiProizvode();
     console.log("pozvano")
     localStorage.setItem("tip","");
-    this.props.uzmiTip();
+    // this.props.uzmiTip();
 
   
   }

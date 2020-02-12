@@ -89,7 +89,7 @@ componentDidMount(){
                     
                 <form className="forma">
                 <p>Podaci</p>
-                <table>
+                <table><tbody>
                     <tr><td className="tt">Vaše ime</td><td><input className="inp" id={korisnik.ime} value={this.state.korisnik.ime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/></td></tr>
@@ -105,7 +105,7 @@ componentDidMount(){
                <tr><td className="tt">Vaš broj telefona</td><td><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,telefon:e.target.value}
                })}/></td></tr>
-                </table>
+              </tbody></table>
                <button type="submit" onClick={this.azuriraj}><Link className="d" to="/login">Ažuriraj</Link></button><br/><br/>
              
               
@@ -137,7 +137,7 @@ componentDidMount(){
                     
                 <form className="forma">
                 <p>Podaci</p>
-                <table>
+                <table><tbody>
                     <tr><td className="tt">Vaše ime</td><td><input className="inp" id={korisnik.ime} value={this.state.korisnik.ime} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/></td></tr>
@@ -153,7 +153,7 @@ componentDidMount(){
                <tr><td className="tt">Vaš broj telefona</td><td><input className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,telefon:e.target.value}
                })}/></td></tr>
-                </table>
+              </tbody></table>
                <button type="submit" onClick={this.azuriraj}><Link className="d" to="/login">Ažuriraj</Link></button><br/><br/>
              
               

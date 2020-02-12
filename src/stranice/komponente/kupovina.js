@@ -150,7 +150,7 @@ class Kupovina extends Component {
         return (
           <div>
             <div className="prazno">
-              <p className="ikonicaKorpe"><i class="fas fa-shopping-cart"></i></p>
+              <p className="ikonicaKorpe"><i className="fas fa-shopping-cart"></i></p>
               <p>Vaa korpa je prazna</p>
               <p><Link className="back" to="/home">Vrati se na pocetnu stranu</Link></p>
 

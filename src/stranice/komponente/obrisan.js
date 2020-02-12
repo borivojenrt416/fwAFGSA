@@ -42,7 +42,7 @@ render(){
         <br/><br/>
                 <div className="dugmesredina">
                 <p>Uspešno ste uklonili proizvod iz korpe</p>
-                <Link className="kr" to="/kupovina"><button type="submit" className="kupi" id={this.state.objekat.naziv} >VRATI SE U <i class="fas fa-shopping-cart"></i></button></Link>
+                <Link className="kr" to="/kupovina"><button type="submit" className="kupi" id={this.state.objekat.naziv} >VRATI SE U <i className="fas fa-shopping-cart"></i></button></Link>
                 </div>   </div>
 </div>
     );

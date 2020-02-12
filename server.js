@@ -114,23 +114,6 @@ app.get("/korisnici/uzmiProizvode/:id",(req,res)=>{
     
 })
 app.get("/korisnici/:tip",(req,res)=>{
-
-    if(req.params.tip!="Desktop"){
-    connection.query(`SELECT * FROM proizvodi WHERE tip=?`,[req.params.tip],(err,result)=>{
-        if(err)
-        {   
-            return res.send(err)
-        }
-        else{
-            return res.json({
-                data:result
-            })
-        }
-    })
-}
-else
-{
-    let t = req.params.tip
     console.log(req.params.tip)
     connection.query(`SELECT * FROM ${req.params.tip}`,(err,result)=>{
         if(err)
@@ -145,7 +128,7 @@ else
             
         }
     })
-}
+// }
 })
     
     

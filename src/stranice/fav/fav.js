@@ -29,7 +29,7 @@ class Fav extends Component {
         return (
           <div>
             <div className="prazno">
-              <p className="ikonicaKorpe"><i class="fas fa-shopping-cart"></i></p>
+              <p className="ikonicaKorpe"><i className="fas fa-shopping-cart"></i></p>
               <p>Trenutno nemate nijedan proizvod na Vašoj listi želji</p>
               <p><Link className="back" to="/home">Vrati se na početnu stranu</Link></p>
             </div>

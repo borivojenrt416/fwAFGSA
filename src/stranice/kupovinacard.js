@@ -32,7 +32,7 @@ omiljeno=()=>{
     this.props.dodajUOmiljeno(this.props.product.proizvod,this.props.omiljeno)
 }
 ok=(e)=>{
-this.props.kolicinaputacena(this.props.product.proizvod.IdDesktop,e.target.value,this.props.korpa)
+this.props.kolicinaputacena(this.props.product.proizvod.Naziv,e.target.value,this.props.korpa)
 this.props.poz()
 }
     render() 
@@ -42,12 +42,14 @@ this.props.poz()
             return (
                 <div>
                     <div className="card">
-                   <button type="button" id="" value="" className="omiljeno" onClick={this.omiljeno} ><i class="far fa-heart"></i></button>
+                   <button type="button" id="" value="" className="omiljeno" onClick={this.omiljeno} ><i className="far fa-heart"></i></button>
                    {/* <button type="button" id="" value="" className="brisi" onClick={this.brisi}><Link className="brs" to={"/ukloniti/"+product.proizvod.IdDesktop} ><i class="far fa-window-close"></i></Link></button> */}
-                   <button type="button" id="" value="" className="brisi" onClick={this.brisi}><i class="far fa-window-close"></i></button>
+                   <button type="button" id="" value="" className="brisi" onClick={this.brisi}><i className="far fa-window-close"></i></button>
                    <div className="bezfloat">
                     <img src={product.proizvod.image}/>
-                        <h5 className="Naziv">{product.proizvod.Naziv}</h5>
+                    <div className="Naziv">
+                        <h5>{product.proizvod.Naziv}</h5>
+                        </div>
                         <div className="linija">
                         <hr />
                         <p className="cena">Cena: {product.proizvod.Cena}  RSD</p>

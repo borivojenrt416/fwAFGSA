@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 
 
 
-const initialState=[]
+const initialState={}
 
 const middleware = [thunk]
 

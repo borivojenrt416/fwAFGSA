@@ -6,12 +6,12 @@ constructor(props) {
     super(props);
     this.state = {
          korisnik:{
-             ime:"",
-             prezime:"",
-             email:"",
-             sifra:"",
-             datumRodjenja:null,
-             telefon:""
+             ime:undefined,
+             prezime:undefined,
+             email:undefined,
+             sifra:undefined,
+             datumRodjenja:undefined,
+             telefon:undefined
          },
          vraceno:0
     }
@@ -59,34 +59,34 @@ render(){
         <p>Electroshop se obavezuje na privatnost Vaših ličnih podataka koji će biti korišćeni isključivo u svrhe kupovine na našem web sajtu.</p>
         <p>Upoznajte se sa<Link className="uk" to="#"> uslovima korišćenja.</Link></p>
         <h5>Šta dobijam registracijom?</h5>
-        <p><i class="far fa-check-circle"></i> Omogućavate sebi brzu i jednostavnu kupovinu.</p>
-        <p><i class="far fa-check-circle"></i> Možete pratiti istorijat kupovine.</p>
-        <p><i class="far fa-check-circle"></i> Možete ostvaljati komentare.</p>
-        <p><i class="far fa-check-circle"></i> Dobijate povremene pogodnosti za registrovane kupce.</p>
+        <p><i className="far fa-check-circle"></i> Omogućavate sebi brzu i jednostavnu kupovinu.</p>
+        <p><i className="far fa-check-circle"></i> Možete pratiti istorijat kupovine.</p>
+        <p><i className="far fa-check-circle"></i> Možete ostvaljati komentare.</p>
+        <p><i className="far fa-check-circle"></i> Dobijate povremene pogodnosti za registrovane kupce.</p>
     </div>
     <div className="desnoL">
     <form className="forma">
-    <table>
-                    <tr><td className="tt">Vaše ime</td><td><input required className="inp" id={korisnik.ime} value={this.state.korisnik.ime} type="text" onChange={e=>this.setState({
+    <table><tbody>
+                    <tr><td className="tt">Vaše ime</td><td><input required className="inp" id={korisnik.ime} value={korisnik.ime||''}  type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/></td></tr>
-               <tr><td className="tt">Vaše prezime</td><td> <input required className="inp" id={korisnik.prezime} value={korisnik.prezime} type="text" onChange={e=>this.setState({
+               <tr><td className="tt">Vaše prezime</td><td> <input required className="inp" id={korisnik.prezime} value={korisnik.prezime||''} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,prezime:e.target.value}
                })}/></td></tr>
-               <tr><td className="tt">Vaš email</td><td><input required className="inp" id={korisnik.email} value={korisnik.email} type="email" onChange={e=>this.setState({
+               <tr><td className="tt">Vaš email</td><td><input required className="inp" id={korisnik.email} value={korisnik.email||''} type="email" onChange={e=>this.setState({
                    korisnik:{...korisnik,email:e.target.value}
                })}/></td></tr>
-               <tr><td className="tt">Vaša sifra</td><td><input required className="inp" id={korisnik.sifra} value={korisnik.sifra} type="text" onChange={e=>this.setState({
+               <tr><td className="tt">Vaša sifra</td><td><input required className="inp" id={korisnik.sifra} value={korisnik.sifra||''} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,sifra:e.target.value}
                })}/></td></tr>
-               <tr><td className="tt">Vaš broj telefona</td><td><input required className="inp" id={korisnik.telefon} value={korisnik.telefon} type="text" onChange={e=>this.setState({
+               <tr><td className="tt">Vaš broj telefona</td><td><input required className="inp" id={korisnik.telefon} value={korisnik.telefon||''} type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,telefon:e.target.value}
                })}/></td></tr>
-               <tr><td className="tt">Vaš datum rođenja</td><td><input required className="inp" id={korisnik.datumRodjenja} value={korisnik.datumRodjenja} type="date" onChange={e=>this.setState({
+               <tr><td className="tt">Vaš datum rođenja</td><td><input required className="inp" id={korisnik.datumRodjenja} value={korisnik.datumRodjenja||''} type="date" onChange={e=>this.setState({
                    korisnik:{...korisnik,datumRodjenja:e.target.value}
                })}/></td></tr>
                <tr><td className="tt"><button type="submit" onClick={this.dodajKorisnika}><Link className="lgn" to="/register">Registruj se</Link></button><br/><br/></td></tr>
-                </table> 
+               </tbody></table> 
     </form>
     </div>
     </div>

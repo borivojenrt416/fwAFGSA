@@ -1,13 +1,16 @@
 .red{
 margin:auto;
+background-color: black;
     .k1,.k2,.k3
     {
         
         display:inline-block;
-        background-color: black;
+       
         text-align: center;
         width:33.333%;
         font-size: 12px;
+        // height:130px;
+        vertical-align: bottom;
         input,button{
             margin:0;
         }

@@ -10,12 +10,12 @@ export class Red1 extends Component {
                 <p>Svakim danom 00-24h</p>
                 </div>
                 <div className="k2">
-                <h1><i class="fas fa-truck"></i></h1>
+                <h1><i className="fas fa-truck"></i></h1>
                 <h2>ISPORUKA</h2>
                 <p>Na teritoriji cele SRBIJE svakim radnim danom</p>
                 </div>
                 <div className="k3">
-                <h1><i class="fas fa-book-open"></i></h1>
+                <h1><i className="fas fa-book-open"></i></h1>
                 <h2>KATALOG</h2>
                 <p>Novi katalog svakih 15 dana</p>
                 </div>

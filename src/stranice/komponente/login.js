@@ -25,9 +25,9 @@ render(){
                 <div className="levoL">
                 <h2>Nemate nalog? Registrujte se</h2>
                 <p>Kreiranjem naloga bićete u mogućnosti da:</p>
-                <p><i class="far fa-check-circle"></i> prolazite brže kroz proces plaćanja,</p>
-                <p><i class="far fa-check-circle"></i> da koristite više adresa za isporuku,</p>
-                <p><i class="far fa-check-circle"></i> pregledate i pratite Vaše porudžbine itd.</p>
+                <p><i className="far fa-check-circle"></i> prolazite brže kroz proces plaćanja,</p>
+                <p><i className="far fa-check-circle"></i> da koristite više adresa za isporuku,</p>
+                <p><i className="far fa-check-circle"></i> pregledate i pratite Vaše porudžbine itd.</p>
                 <button type="submit" onClick={()=>{alert("REG")}}><Link className="reg" to="/register">Kreiraj korisnički nalog</Link></button>
             </div>
             <div className="desnoL">
@@ -45,9 +45,9 @@ render(){
             <hr/>
             <div className="drm">
             <p>Prijavite se koristeći naloge društvenih mreža:</p>
-            <Link className="mreza"><img src={fb}/></Link>
-            <Link className="mreza"><img src={twitter}/></Link>
-            <Link className="mreza"><img src={linkedin}/></Link>
+            <Link to="#" className="mreza"><img src={fb}/></Link>
+            <Link to="#" className="mreza"><img src={twitter}/></Link>
+            <Link to="#" className="mreza"><img src={linkedin}/></Link>
             </div>
             </div>
             </div>

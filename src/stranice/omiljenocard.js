@@ -32,7 +32,7 @@ brisi=()=>{
             return (
                 <div>
                     <div className="card">
-                   <button type="button" id="" value="" className="brisi" onClick={this.brisi}><i class="far fa-window-close"></i></button>
+                   <button type="button" id="" value="" className="brisi" onClick={this.brisi}><i className="far fa-window-close"></i></button>
                    <div className="bezfloat">
                     <img src={product.img}/>
                         <h5 className="naziv">{product.naziv}</h5>
@@ -40,7 +40,7 @@ brisi=()=>{
                         <hr />
                         <p className="cena">Cena: {product.cena}  RSD</p>
                         </div>
-                        <button type="submit" className="dodajUKorpu" id={product.naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i class="fas fa-cart-plus"></i></span></button>
+                        <button type="submit" className="dodajUKorpu" id={product.naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i className="fas fa-cart-plus"></i></span></button>
                         </div>
                         <div className="detalj"><Link className="linkud" to={"/product/"+product.idpr}> DETALJI </Link></div>
                     </div>

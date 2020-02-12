@@ -1,4 +1,4 @@
-import {DODAJUKORPU,VRATIPORUKU,ISPRAZNIKORPU,VRATIBROJKORPA,FILTRIRANJEKORPE,KOLICINA, RACUN, CENA_TIP} from './types'
+import {DODAJUKORPU,VRATIPORUKU,ISPRAZNIKORPU,VRATIBROJKORPA,FILTRIRANJEKORPE,KOLICINA, RACUN} from './types'
 
 
 export function racunanje(korpa){
@@ -37,14 +37,14 @@ export const racunaj = (korpa)=>dispatch=>{
     })
 
 }
-export const kolicinaputacena=(id,kolicina,niz)=>dispatch=>{
+export const kolicinaputacena=(naziv,kolicina,niz)=>dispatch=>{
     console.log("KOLICINAPUTACENA???")
     var ukupno=0;
     for(let i=0;i<niz.length;i++)
   
     {
-        console.log(niz[i].proizvod.IdDesktop);
-       if(niz[i].proizvod.IdDesktop===id)
+        console.log(niz[i].proizvod.Naziv);
+       if(niz[i].proizvod.Naziv===naziv)
        {
         console.log("NADJENO???")
         niz[i].kolicina = kolicina;

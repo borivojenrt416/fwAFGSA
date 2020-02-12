@@ -17,6 +17,7 @@ class Navigacija extends Component{
             <div className="lista">
                 <ul className="flex-container">
                     <Link to="/proizvodi/Desktop" ><li className={localStorage.getItem("tip")=="Desktop"?"act":""} >Desktop računari</li></Link>
+                    <Link to="/proizvodi/Monitori"  ><li className={localStorage.getItem("tip")=="Monitori"?"act":""}>Monitori</li></Link> 
                     <Link to="/proizvodi/klima"  ><li className={localStorage.getItem("tip")=="klima"?"act":""}>Matične ploče</li></Link> 
                     <Link to="/proizvodi/telefon"  ><li>Procesor</li></Link> 
                     <Link to="/proizvodi/tablet"  ><li>Memorije</li></Link> 

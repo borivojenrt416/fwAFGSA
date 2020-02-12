@@ -30,7 +30,7 @@ export class Searchbar extends Component {
     render() {
         return (
             <div><div>
-            <input type="text" placeholder="Unesite naziv proizvoda..." id="pr1" onChange={this.pretrazi}/><button type="submit" id="pr"><i class="fas fa-search"></i></button>
+            <input type="text" placeholder="Unesite naziv proizvoda..." id="pr1" onChange={this.pretrazi}/><button type="submit" id="pr"><i className="fas fa-search"></i></button>
             </div>
             <div className="sp">
             <div className={this.state.niz.length===0? 'skriveno':'vidljivo'}>
