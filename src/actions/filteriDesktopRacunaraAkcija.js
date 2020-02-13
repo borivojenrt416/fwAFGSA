@@ -22,19 +22,19 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
       // console.log(niz[indeksProizvoda]);
       var a = JSON.stringify(niz[indeksProizvoda].Cena).replace(".", "");
       var b = parseInt(JSON.parse(a));
-      if (vrednost === "Ddo50") {
+      if (vrednost === "ddo50") {
         if (b <= 50000) noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "Ddo100") {
+      if (vrednost === "ddo100") {
         if (b <= 100000) noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "Ddo200") {
+      if (vrednost === "ddo200") {
         if (b <= 200000)noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "Dpreko200") {
+      if (vrednost === "dpreko200") {
         if (b > 200000) noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "Dsvi") {
+      if (vrednost === "dsvi") {
         noviNiz = niz;
       }
     }
@@ -343,7 +343,7 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
   
         var niz3 = [];
         for (let filterIndex = 0; filterIndex < filteri.length; filterIndex++) {
-          if (filteri[filterIndex][0] === "D") cenaFilter = filteri[filterIndex];
+          if (filteri[filterIndex][0] === "d") cenaFilter = filteri[filterIndex];
         }
         console.log("Pronadjen filter za cenu?", cenaFilter);
         //Ako ima radi se filtriranje za opseg cene

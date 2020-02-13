@@ -22,17 +22,17 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
       // console.log(niz[indeksProizvoda]);
       var a = JSON.stringify(niz[indeksProizvoda].Cena).replace(".", "");
       var b = parseInt(JSON.parse(a));
-      if (vrednost === "ddo25") {
-        if (b <= 25000) noviNiz.push(niz[indeksProizvoda]);
+      if (vrednost === "ddo10") {
+        if (b <= 10000) noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "ddo50") {
-        if (b <= 50000) noviNiz.push(niz[indeksProizvoda]);
+      if (vrednost === "ddo20") {
+        if (b <= 20000) noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "ddo100") {
-        if (b <= 100000)noviNiz.push(niz[indeksProizvoda]);
+      if (vrednost === "ddo35") {
+        if (b <= 35000)noviNiz.push(niz[indeksProizvoda]);
       }
-      if (vrednost === "dpreko100") {
-        if (b > 100000) noviNiz.push(niz[indeksProizvoda]);
+      if (vrednost === "dpreko35") {
+        if (b > 35000) noviNiz.push(niz[indeksProizvoda]);
       }
       if (vrednost === "dsvi") {
         noviNiz = niz;
@@ -146,7 +146,7 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
     return niz3;
   }
   
-  export const filteriMonitora = (filteri, t) => dispatch => {
+  export const filteriMaticnaPloca = (filteri, t) => dispatch => {
     var cenaFilter = "";
     var imaSort = "";
     var proizvodjacMonitoraFilter = false;

@@ -97,3 +97,14 @@ form{
 }
 
 }
+
+.hidden{
+  display:none;
+}
+.hiddenButton{
+  text-align: center;
+  button{
+    background-color: rgb(226, 226, 226);
+    color:black;
+  }
+}

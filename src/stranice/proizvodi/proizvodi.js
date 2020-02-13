@@ -7,7 +7,25 @@ import { uzmiTip} from "../../actions/tipAkcija";
 import {filteriDesktopRacunara} from "../../actions/filteriDesktopRacunaraAkcija"
 import {filteriMonitora} from "../../actions/filteriMonitori"
 import {FilteriDesktopRacunari} from './filteri/filteriDesktopRacunari'
+import {FilteriGornjiDekstopRacunari} from './filteri/filteriGornjiDesktopRacunari'
+import {FilteriGornjiMonitori} from './filteri/filteriGornjiMonitori'
+import {FilteriGornjiMaticnaPloca} from './filteri/filteriGornjiMaticnaPloca'
 import {FilteriMonitori} from './filteri/filteriMonitori'
+import {FilteriMaticnaPloca} from './filteri/filteriMaticnaPloca'
+import { FilteriProcesor } from "./filteri/filteriProcesor";
+import { FilteriGornjiProcesor } from "./filteri/filteriGornjiProcesor";
+import { FilteriGornjiMemorija } from "./filteri/filteriGornjiMemorija";
+import { FilteriMemorija } from "./filteri/filteriMemorija";
+import { FilteriGrafickaKartica } from "./filteri/filteriGrafickaKartica";
+import { FilteriGornjiGrafickaKartica } from "./filteri/filteriGornjiGrafickaKartica";
+import { FilteriHDD } from "./filteri/filteriHDD";
+import { FilteriGornjiHDD } from "./filteri/filteriGornjiHDD";
+import { FilteriSSD } from "./filteri/filteriSSD";
+import { FilteriGornjiSSD } from "./filteri/filteriGornjiSSD";
+import { FilteriGornjiNapajanja } from "./filteri/filteriGornjiNapajanja";
+import { FilteriNapajanja } from "./filteri/filteriNapajanja";
+import { FilteriKucista } from "./filteri/filteriKucista";
+import { FilteriGornjiKucista } from "./filteri/filteriGornjiKucista";
 const Proizvod = ({ match }) => <p>{match.params.id}</p>;
 
 class Proizvodi extends Component {
@@ -54,7 +72,7 @@ componentWillUpdate(prevProps){
   {
     this.props.filteriMonitora(niz,prevProps.match.params.tip)
   }
-  document.getElementById("cenaDo").value="Dsvi"
+  document.getElementById("cenaDo").value="dsvi"
   }
   
   console.log(this.props.tip)
@@ -227,7 +245,7 @@ clear=(e)=>{
   {
     this.props.filteriMonitora(niz,this.props.match.params.tip)
   }
-  document.getElementById("cenaDo").value="Dsvi"
+  document.getElementById("cenaDo").value="dsvi"
 }
   render() 
   
@@ -244,49 +262,63 @@ clear=(e)=>{
          {
        this.props.match.params.tip==="Monitori"?<FilteriMonitori checkChanged={this.checkChanged}/>:""
        }
+             {
+       this.props.match.params.tip==="MaticnePloce"?<FilteriMaticnaPloca checkChanged={this.checkChanged}/>:""
+       }
+         {
+       this.props.match.params.tip==="Procesori"?<FilteriProcesor checkChanged={this.checkChanged}/>:""
+       }
+       {
+       this.props.match.params.tip==="Memorije"?<FilteriMemorija checkChanged={this.checkChanged}/>:""
+       }
+              {
+       this.props.match.params.tip==="GrafickeKarte"?<FilteriGrafickaKartica checkChanged={this.checkChanged}/>:""
+       }
+                     {
+       this.props.match.params.tip==="HDD"?<FilteriHDD checkChanged={this.checkChanged}/>:""
+       }
+         {
+       this.props.match.params.tip==="SSD"?<FilteriSSD checkChanged={this.checkChanged}/>:""
+       }
+         {
+       this.props.match.params.tip==="Napajanja"?<FilteriNapajanja checkChanged={this.checkChanged}/>:""
+       }
+         {
+       this.props.match.params.tip==="Kucista"?<FilteriKucista checkChanged={this.checkChanged}/>:""
+       }
          </div>
          <div className="proiz1">
-         <div className="kf">
-      
-        <form>
-          <div className="filtriranje">
-              <label htmlFor="sort">Sortiraj po </label>
-                 <Link to="#" className="slct"><select id="sort" onChange={this.filter}>
-                        <option value="Scrast" >Ceni rastuce</option>
-                        <option value="Scopad" >Ceni opadajuce</option>
-                        <option value="Snrast" >Nazivu A-Z</option>
-                        <option value="Snopad" >Nazivu Z-A</option>
-                    </select></Link>
-                    </div>
-                    {
-                      this.props.match.params.tip==="Desktop"?( <div className="filtriranje">
-                      <label htmlFor="cenaDo">Cena do </label>
-                  <Link to="#" className="slct"><select id="cenaDo" onChange={this.filter}>
-                         <option value="Dsvi" >Svi proizvodi</option>
-                         <option value="Ddo50" >&lt; 50 000</option>
-                         <option value="Ddo100" >&lt; 100 000</option>
-                         <option value="Ddo200" >&lt; 200 000</option>
-                         <option value="Dpreko200" >&gt; 200 000</option>
-                     </select></Link>
-                     </div>):""
+                      {
+                      this.props.match.params.tip==="Desktop"?(<FilteriGornjiDekstopRacunari clear={this.clear} filter={this.filter}/> 
+                      ):""
                     }
                      {
-                      this.props.match.params.tip==="Monitori"?( <div className="filtriranje">
-                      <label htmlFor="cenaDo">Cena do </label>
-                  <Link to="#" className="slct"><select id="cenaDo" onChange={this.filter}>
-                         <option value="Dsvi" >Svi proizvodi</option>
-                         <option value="Ddo25" >&lt; 25 000</option>
-                         <option value="Ddo50" >&lt; 50 000</option>
-                         <option value="Ddo100" >&lt; 100 000</option>
-                         <option value="Dpreko100" >&gt; 100 000</option>
-                     </select></Link>
-                     </div>):""
+                      this.props.match.params.tip==="Monitori"?(<FilteriGornjiMonitori clear={this.clear} filter={this.filter}/> ):""
                     }
-                    <div className="filtriranje">
-                   <button type="submit" onClick={this.clear}>Ocisti filtere</button>
-                    </div>
-                </form>
-                </div>
+                   {
+                      this.props.match.params.tip==="MaticnePloce"?(<FilteriGornjiMaticnaPloca clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="Procesori"?(<FilteriGornjiProcesor clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="Memorije"?(<FilteriGornjiMemorija clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="GrafickeKarte"?(<FilteriGornjiGrafickaKartica clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="HDD"?(<FilteriGornjiHDD clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="SSD"?(<FilteriGornjiSSD clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="Napajanja"?(<FilteriGornjiNapajanja clear={this.clear} filter={this.filter}/> ):""
+                    }
+                       {
+                      this.props.match.params.tip==="Kucista"?(<FilteriGornjiKucista clear={this.clear} filter={this.filter}/> ):""
+                    }
                 <div className="cards">           
                 {
             this.props.tip.map(i=>(
