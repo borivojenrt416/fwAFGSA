@@ -34,28 +34,122 @@ app.get("/korisnici/sviproizvodi",(req,res)=>{
         }
     })
 })
+// app.get("/korisnici/pretraga/:naziv",(req,res)=>{
+//     var rec = req.params.naziv.toLowerCase()
+//     connection.query(`SELECT * FROM monitori WHERE lower(Naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
+//         if(err)
+//         {   return res.send(err)
+//         }
+//         else{
+//             return res.json({
+//                 data:result
+//             })
+//         }
+//     })
+    
+// })
+
+// app.get("/korisnici/pretraga/:naziv",(req,res)=>{
+//     var rec = req.params.naziv.toLowerCase()
+//     var tabele=['desktop','memorije','procesori']
+//     var rezultat=[]
+//     for(let i=0;i<tabele.length;i++)
+//     {
+//         connection.query(`SELECT * FROM ${tabele[i]} WHERE lower(Naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
+//             if(err)
+//             {   console.log(err)
+//                 return res.send(err)
+//             }
+//             else{
+//                 console.log(result)
+//                 console.log(rezultat)
+//                 rezultat.push(res.json({
+//                     data:result
+//                 }))         
+//             }
+//         })  
+//     }
+//     return rezultat;
+// })
 app.get("/korisnici/pretraga/:naziv",(req,res)=>{
     var rec = req.params.naziv.toLowerCase()
-    connection.query(`SELECT * FROM proizvodi WHERE lower(naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
-        if(err)
-        {   return res.send(err)
-        }
-        else{
-            return res.json({
-                data:result
-            })
-        }
-    })
+    var tabele=['desktop','memorije','procesori']
+    var rezultat=[]
+    var objekti=[]
+        connection.query(`Select TABLE_NAME from information_schema.columns where column_name='IdAll'`,(err,result)=>{
+            if(err)
+            {   console.log(err)
+                return res.send(err)
+            }
+            else{
+                console.log(result)
+                rezultat=result   
+            }
+            console.log(rezultat)
+            for(let i=0;i<rezultat.length;i++)
+            console.log(rezultat[i].TABLE_NAME) //vratio tabele
+            for(let i=0;i<rezultat.length;i++)
+            {
+                connection.query(`SELECT * FROM ${rezultat[i].TABLE_NAME} WHERE IdAll='desktop'`,(err,result)=>{
+                    if(err)
+                    {
+                        console.log(err)
+                        return res.send(err)
+                    }
+                    else{
+                        console.log(result)
+                        objekti.push(result)
+                    }
+                    console.log(objekti,objekti.length)
+                   
+                })
+            }
+            console.log(objekti,objekti.length)
+            for(let j=0;j<objekti.length;j++)
+            {
+                console.log(objekti[j].RowDataPacket)
+                // connection.query(`SELECT * FROM ${objekti[j]} `,(err,result)=>{
+                //     if(err)
+                //     {
+                //         console.log(err)
+                //         return res.send(err)
+                //     }
+                //     else{
+                //         console.log(result)
+                //     }
+                // })
+            }
     
-})
+            // return objekti;
+        }) 
+        
+      
 
-app.get("/korisnici/proizvod/:idpr",(req,res)=>{
-    console.log(req.params.idpr)
-    connection.query(`SELECT * FROM proizvodi WHERE idpr=?`,[req.params.idpr],(err,result)=>{
+})
+//     connection.query(`SELECT * FROM monitori WHERE lower(Naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
+//         if(err)
+//         {   return res.send(err)
+//         }
+//         else{
+//             return res.json({
+//                 data:result
+//             })
+//         }
+//     })
+    
+// })
+
+app.get("/korisnici/proizvod/:IdAll/:Naziv",(req,res)=>{
+    console.log(req.params.IdAll)
+    console.log(req.params.Naziv)
+    connection.query(`SELECT * FROM ${req.params.IdAll} WHERE Naziv=?`,[req.params.Naziv],(err,result)=>{
         if(err)
-        {   return res.send(err)
+        {   
+            console.log(err)
+            return res.send(err)
         }
         else{
+            console.log(result)
             return res.json({
                 data:result
             })
@@ -79,12 +173,16 @@ app.get("/korisnici/pretrazi/:email",(req,res)=>{
     
 })
 
-app.get("/korisnici/dodaj/:ime/:prezime/:datumRodjenja/:email/:sifra/:telefon",(req,res)=>{
+app.get("/korisnici/dodaj/:ime/:prezime/:email/:sifra/:telefon",(req,res)=>{
     console.log(req.params.email,req.params.ime,req.params.sifra)
-    connection.query(`INSERT INTO table1 (ime,prezime,datumRodjenja,email,sifra,telefon) VALUES(?,?,?,?,?,?)`,[req.params.ime,req.params.prezime,req.params.datumRodjenja,req.params.email,req.params.sifra,req.params.telefon],(err)=>{
+    connection.query(`INSERT INTO table1 (ime,prezime,email,sifra,telefon) VALUES(?,?,?,?,?)`,[req.params.ime,req.params.prezime,req.params.email,req.params.sifra,req.params.telefon],(err)=>{
         if(err)
-        {   return res.send(err)}
+        {   
+            console.log("NEuspesna registracija")
+            console.log(err)
+            return res.send(err)}
         else{
+            console.log("uspesna registracija")
             return res.send("Uspesno")
         }
     })

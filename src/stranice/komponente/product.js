@@ -12,9 +12,9 @@ class Product extends Component{
     }
     componentWillUpdate(prevProps){
 
-        if(this.props.match.params.id!==prevProps.match.params.id)
+        if(this.props.match.params.Naziv!==prevProps.match.params.Naziv)
         {
-           fetch(`http://localhost:4000/korisnici/proizvod/${prevProps.match.params.id}`)
+           fetch(`http://localhost:4000/korisnici/proizvod/${prevProps.match.params.IdAll}/${prevProps.match.params.Naziv}`)
         .then(response=>response.json())
         .then(vrati=>{
             this.setState({
@@ -23,7 +23,7 @@ class Product extends Component{
         })
         }}
     componentWillMount(){
-        fetch(`http://localhost:4000/korisnici/proizvod/${this.props.match.params.id}`)
+        fetch(`http://localhost:4000/korisnici/proizvod/${this.props.match.params.IdAll}/${this.props.match.params.Naziv}`)
         .then(response=>response.json())
         .then(vrati=>{
             this.setState({
@@ -44,21 +44,21 @@ render(){
 <div className="proizvod">
     <div className="levaStrana">
     <p className="nazivpr">
-        {this.state.objekat.naziv}
+        {this.state.objekat.Naziv}
         </p>
     <div className="img">
-        <img src={this.state.objekat.img} />
+        <img src={this.state.objekat.image} />
     </div>
     </div>
     <div className="desnaStrana">
         <p><span id="besplatno">Opis proizvoda : </span> {this.state.objekat.opis}</p>
-        <p><span id="besplatno">Cena proizvoda : </span> {this.state.objekat.cena}<span>RSD</span></p>
+        <p><span id="besplatno">Cena proizvoda : </span> {this.state.objekat.Cena}<span>RSD</span></p>
         <hr/>
         <h1><i class="fas fa-truck"></i></h1>
                 <p><span id="besplatno">BESPLATNA ISPORUKA</span> na teritoriji cele SRBIJE svakim radnim danom</p>
                 <hr/>
                 <div className="dugmesredina">
-                <button type="submit" className="kupi" id={this.state.objekat.naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i class="fas fa-cart-plus"></i></span></button>
+                <button type="submit" className="kupi" id={this.state.objekat.Naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i class="fas fa-cart-plus"></i></span></button>
                 </div>   </div>
 </div>
     );

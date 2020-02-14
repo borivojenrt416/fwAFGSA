@@ -19,13 +19,15 @@ constructor(props) {
 dodajKorisnika=e=>{
     e.preventDefault()
     const {korisnik} = this.state;
-    if(korisnik.ime===""||korisnik.prezime===""||korisnik.sifra===""||korisnik.email===""||korisnik.datumRodjenja===null||korisnik.telefon==="")
+    if(korisnik.ime===""||korisnik.prezime===""||korisnik.sifra===""||korisnik.email===""||korisnik.telefon==="")
     {
             alert("POPUNITE SVA POLJA!")
     }
     else
     
-        if(this.state.korisnik.telefon.match("[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2,3}"))
+        // if(this.state.korisnik.telefon.match("[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2,3}"))
+        console.log(korisnik)
+        if(this.state.korisnik.telefon.match("[0-9]{9,10}"))
                 {
                    
                     fetch(`http://localhost:4000/korisnici/pretrazi/${korisnik.email}`)
@@ -33,7 +35,7 @@ dodajKorisnika=e=>{
                     .then(broj=>{
                         if(broj.data===0)
                         {
-                            fetch(`http://localhost:4000/korisnici/dodaj/${korisnik.ime}/${korisnik.prezime}/${korisnik.datumRodjenja}/${korisnik.email}/${korisnik.sifra}/${korisnik.telefon}`)
+                            fetch(`http://localhost:4000/korisnici/dodaj/${korisnik.ime}/${korisnik.prezime}/${korisnik.email}/${korisnik.sifra}/${korisnik.telefon}`)
                             alert("USPESNO STE SE REGISTROVALI NA SAJT")
                         }
                         else
@@ -66,7 +68,7 @@ render(){
     </div>
     <div className="desnoL">
     <form className="forma">
-    <table><tbody>
+    {/* <table><tbody>
                     <tr><td className="tt">Vaše ime</td><td><input required className="inp" id={korisnik.ime} value={korisnik.ime||''}  type="text" onChange={e=>this.setState({
                    korisnik:{...korisnik,ime:e.target.value}
                })}/></td></tr>
@@ -86,7 +88,23 @@ render(){
                    korisnik:{...korisnik,datumRodjenja:e.target.value}
                })}/></td></tr>
                <tr><td className="tt"><button type="submit" onClick={this.dodajKorisnika}><Link className="lgn" to="/register">Registruj se</Link></button><br/><br/></td></tr>
-               </tbody></table> 
+               </tbody></table>  */}
+               <label htmlFor={korisnik.ime}>Vase ime</label><input required className="inp" id={korisnik.ime} value={korisnik.ime||''} placeholder="Unesite Vase ime..."  type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,ime:e.target.value}})}/><br/>
+                   <label htmlFor={korisnik.prezime}>Vase prezime</label><input required className="inp" id={korisnik.prezime} value={korisnik.prezime||''} placeholder="Unesite Vase prezime..." type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,prezime:e.target.value}
+               })}/><br/>
+                <label htmlFor={korisnik.email}>Vas email</label>
+                <input required className="inp" id={korisnik.email} value={korisnik.email||''} placeholder="Unesite Vas email..." type="email" onChange={e=>this.setState({
+                   korisnik:{...korisnik,email:e.target.value}
+               })}/>
+               <label htmlFor={korisnik.sifra}>Vasa sifra</label><input required className="inp" id={korisnik.sifra} value={korisnik.sifra||''} placeholder="Unesite lozinku..." type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,sifra:e.target.value}
+               })}/>
+               <label htmlFor={korisnik.telefon}>Vas telefon</label><input required className="inp" id={korisnik.telefon} value={korisnik.telefon||''} placeholder="Unesite Vas broj telefona..." type="text" onChange={e=>this.setState({
+                   korisnik:{...korisnik,telefon:e.target.value}
+               })}/><br/>
+               <button type="submit" onClick={this.dodajKorisnika}><Link className="lgn" to="/register">Registruj se</Link></button><br/><br/>
     </form>
     </div>
     </div>

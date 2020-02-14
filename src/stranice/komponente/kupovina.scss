@@ -1,23 +1,75 @@
 .kupovina{
-    text-align: center;
-    width:100%;
+    // text-align: center;
+    width:75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 4px #000000;
+    
+    .nazivKomponente{
+        padding-top: 10px;
+        width:96%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    table{
+    
+        border:none;
+        padding:15px 5px;
+      
+    }
+    th{
+   
+        border:none;
+        text-align: center;
+
+    }
+    
     .pored{
         display:inline-block;
         margin:5px 10px 10px 0;
        
     }
-    .dugmeKupi{
-        width: 10%;
-        background-color: rgb(15, 0, 70);
-        margin-bottom: 20px;
+    .dugmeZaNazad,.dugmeZaNapred{
+        display:inline-block;
+        width: 50%;
     }
-    .dugmeKupi:hover{
-        background-color: rgb(33, 0, 153);
+    .dugmici{
+        width:90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .dugmeZaNapred{
+        text-align: right;
+    }
+    .dugmeZaNazad{
+        text-align: left;
+    }
+    .dugmeKupi,.dugmeVratiSeNazad{
+     
+        // width: 10%;
+        background-color: rgb(0, 0, 0);
+        
+        margin-bottom: 20px;
+        color:rgb(255, 255, 255);
+        font-size: 14px;
+        padding:20px 15px;
+    }
+
+    .dugmeKupi:hover,.dugmeVratiSeNazad:hover{
+        background-color: rgb(61, 61, 61);
 
     }
+    .racun{
+        width:95%;
+        text-align: right;
+    }
+
 }
 .cena2tekst{
-    font-size: 1.5vw;
+    // font-size: 1.5vw;
 }
 #cen2{
     position: absolute;
@@ -46,9 +98,11 @@
     width:60%;
     margin-right: auto;
     margin-left: auto;;
-    padding:0;
-    background-color: rgb(216, 216, 216);
+    padding:20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 4px black;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 24px;
     .ikonicaKorpe{
         font-size:175px;

@@ -64,11 +64,11 @@ componentWillUpdate(prevProps){
     filteri:[]
   })
   var niz=[]
-  if(prevProps.match.params.tip==="Desktop")
+  if(prevProps.match.params.tip==="desktop")
   {
     this.props.filteriDesktopRacunara(niz,prevProps.match.params.tip)
   }
-  else if(prevProps.match.params.tip==="Monitori")
+  else if(prevProps.match.params.tip==="monitori")
   {
     this.props.filteriMonitora(niz,prevProps.match.params.tip)
   }
@@ -96,11 +96,11 @@ componentWillUpdate(prevProps){
        this.setState({
     filteri:n2
   })
-  if(this.props.match.params.tip==="Desktop")
+  if(this.props.match.params.tip==="desktop")
   {
     this.props.filteriDesktopRacunara(n2,this.props.match.params.tip)
   }
-  else if(this.props.match.params.tip==="Monitori")
+  else if(this.props.match.params.tip==="monitori")
   {
     this.props.filteriMonitora(n2,this.props.match.params.tip)
   }
@@ -114,11 +114,11 @@ componentWillUpdate(prevProps){
      this.setState({
     filteri:n
   })
-  if(this.props.match.params.tip==="Desktop")
+  if(this.props.match.params.tip==="desktop")
   {
     this.props.filteriDesktopRacunara(n,this.props.match.params.tip)
   }
-  else if(this.props.match.params.tip==="Monitori")
+  else if(this.props.match.params.tip==="monitori")
   {
     this.props.filteriMonitora(n,this.props.match.params.tip)
   }
@@ -188,12 +188,12 @@ checkChanged=(e)=>{
     this.setState({
       filteri:niz2
     })
-    if(this.props.match.params.tip==="Desktop")
+    if(this.props.match.params.tip==="desktop")
     {
       console.log("Desktop parametar")
       this.props.filteriDesktopRacunara(niz2,this.props.match.params.tip)
     }
-    else if(this.props.match.params.tip==="Monitori")
+    else if(this.props.match.params.tip==="monitori")
     {
       console.log("Monitor parametar")
       this.props.filteriMonitora(niz2,this.props.match.params.tip)
@@ -206,12 +206,12 @@ checkChanged=(e)=>{
     this.setState({
       filteri:niz
     })
-    if(this.props.match.params.tip==="Desktop")
+    if(this.props.match.params.tip==="desktop")
   {
     console.log("Nije nadjen Desktop parametar")
     this.props.filteriDesktopRacunara(niz,this.props.match.params.tip)
   }
-  else if(this.props.match.params.tip==="Monitori")
+  else if(this.props.match.params.tip==="monitori")
   {
     console.log("Nije nadjen Monitor parametar")
     this.props.filteriMonitora(niz,this.props.match.params.tip)
@@ -237,11 +237,11 @@ clear=(e)=>{
     filteri:[]
   })
   var niz=[]
-  if(this.props.match.params.tip==="Desktop")
+  if(this.props.match.params.tip==="desktop")
   {
     this.props.filteriDesktopRacunara(niz,this.props.match.params.tip)
   }
-  else if(this.props.match.params.tip==="Monitori")
+  else if(this.props.match.params.tip==="monitori")
   {
     this.props.filteriMonitora(niz,this.props.match.params.tip)
   }
@@ -257,67 +257,67 @@ clear=(e)=>{
        <div>
        <div className="proiz">
        <div className="checkbox">{
-       this.props.match.params.tip==="Desktop"?<FilteriDesktopRacunari checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="desktop"?<FilteriDesktopRacunari checkChanged={this.checkChanged}/>:""
        }
          {
-       this.props.match.params.tip==="Monitori"?<FilteriMonitori checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="monitori"?<FilteriMonitori checkChanged={this.checkChanged}/>:""
        }
              {
-       this.props.match.params.tip==="MaticnePloce"?<FilteriMaticnaPloca checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="maticneploce"?<FilteriMaticnaPloca checkChanged={this.checkChanged}/>:""
        }
          {
-       this.props.match.params.tip==="Procesori"?<FilteriProcesor checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="procesori"?<FilteriProcesor checkChanged={this.checkChanged}/>:""
        }
        {
-       this.props.match.params.tip==="Memorije"?<FilteriMemorija checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="memorije"?<FilteriMemorija checkChanged={this.checkChanged}/>:""
        }
               {
-       this.props.match.params.tip==="GrafickeKarte"?<FilteriGrafickaKartica checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="grafickekarte"?<FilteriGrafickaKartica checkChanged={this.checkChanged}/>:""
        }
                      {
-       this.props.match.params.tip==="HDD"?<FilteriHDD checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="hdd"?<FilteriHDD checkChanged={this.checkChanged}/>:""
        }
          {
-       this.props.match.params.tip==="SSD"?<FilteriSSD checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="ssd"?<FilteriSSD checkChanged={this.checkChanged}/>:""
        }
          {
-       this.props.match.params.tip==="Napajanja"?<FilteriNapajanja checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="napajanja"?<FilteriNapajanja checkChanged={this.checkChanged}/>:""
        }
          {
-       this.props.match.params.tip==="Kucista"?<FilteriKucista checkChanged={this.checkChanged}/>:""
+       this.props.match.params.tip==="kucista"?<FilteriKucista checkChanged={this.checkChanged}/>:""
        }
          </div>
          <div className="proiz1">
                       {
-                      this.props.match.params.tip==="Desktop"?(<FilteriGornjiDekstopRacunari clear={this.clear} filter={this.filter}/> 
+                      this.props.match.params.tip==="desktop"?(<FilteriGornjiDekstopRacunari clear={this.clear} filter={this.filter}/> 
                       ):""
                     }
                      {
-                      this.props.match.params.tip==="Monitori"?(<FilteriGornjiMonitori clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="monitori"?(<FilteriGornjiMonitori clear={this.clear} filter={this.filter}/> ):""
                     }
                    {
-                      this.props.match.params.tip==="MaticnePloce"?(<FilteriGornjiMaticnaPloca clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="maticneploce"?(<FilteriGornjiMaticnaPloca clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="Procesori"?(<FilteriGornjiProcesor clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="procesori"?(<FilteriGornjiProcesor clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="Memorije"?(<FilteriGornjiMemorija clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="memorije"?(<FilteriGornjiMemorija clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="GrafickeKarte"?(<FilteriGornjiGrafickaKartica clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="grafickekarte"?(<FilteriGornjiGrafickaKartica clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="HDD"?(<FilteriGornjiHDD clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="hdd"?(<FilteriGornjiHDD clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="SSD"?(<FilteriGornjiSSD clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="ssd"?(<FilteriGornjiSSD clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="Napajanja"?(<FilteriGornjiNapajanja clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="napajanja"?(<FilteriGornjiNapajanja clear={this.clear} filter={this.filter}/> ):""
                     }
                        {
-                      this.props.match.params.tip==="Kucista"?(<FilteriGornjiKucista clear={this.clear} filter={this.filter}/> ):""
+                      this.props.match.params.tip==="kucista"?(<FilteriGornjiKucista clear={this.clear} filter={this.filter}/> ):""
                     }
                 <div className="cards">           
                 {

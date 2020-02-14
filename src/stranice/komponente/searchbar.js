@@ -30,19 +30,21 @@ export class Searchbar extends Component {
     render() {
         return (
             <div><div>
-            <input type="text" placeholder="Unesite naziv proizvoda..." id="pr1" onChange={this.pretrazi}/><button type="submit" id="pr"><i className="fas fa-search"></i></button>
-            </div>
+            <input type="text" placeholder="Unesite naziv proizvoda..." id="pr1" onChange={this.pretrazi}/>
             <div className="sp">
-            <div className={this.state.niz.length===0? 'skriveno':'vidljivo'}>
+            <div className={this.state.niz.length===0? 'skriveno':'vidljivaPretraga'}>
                 {this.state.niz.map(n=>(
                     <Link className="trazeno" to={"/product/"+n.idpr} onClick={this.isprazni}>
                     <div className="unutraLink">
-                     <span id="bold">Naziv :</span> {n.naziv} <span id="bold">Tip :</span> {n.tip} <span id="bold">Cena :</span> {n.cena} <span id="bold">RSD</span><br/>
+                     <span id="bold">Naziv :</span> {n.Naziv} <span id="bold">Cena :</span> {n.Cena} <span id="bold">RSD</span><br/>
                      </div></Link>
                 )   
                 )}
             </div>
             </div>
+            {/* <button type="submit" id="pr"><i className="fas fa-search"></i></button> */}
+            </div>
+           
                </div>
         )
     }

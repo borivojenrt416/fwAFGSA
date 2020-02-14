@@ -106,10 +106,13 @@ export const vratiBroj=(proizvodi)=>dispatch=>{
 }
 export const dodajUKorpu=(proizvod,postojeciniz,kolicina=1)=>dispatch=>{
     var br=0;
+    console.log("Usao u dodaj u korpu")
     for(let i=0;i<postojeciniz.length;i++)
     {
-      if(postojeciniz[i].Naziv===proizvod.Naziv)
+        console.log(postojeciniz[i])
+      if(postojeciniz[i].proizvod.Naziv===proizvod.Naziv)
       {
+          console.log("Proizvod je vec u korpi!")
         br=1;
         dispatch({
             type:VRATIPORUKU,

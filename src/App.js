@@ -69,7 +69,7 @@ componentDidMount()
        <Route exact path="/register" component={Register} />
        <Route exact path="/korisnik" render={props=><Korisnik/>}/>
        <Route exact path="/kupovina" render={props=><Kupovina/>}/>
-       <Route exact path="/product/:id" component={Product} />
+       <Route exact path="/product/:IdAll/:Naziv" component={Product} />
        <Route exact path="/ukloniti/:id" component={Obrisan} />
        <Route exact path="/omiljeno" component={Fav}/>
        <Route component={Error}/>

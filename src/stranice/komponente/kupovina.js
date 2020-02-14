@@ -132,15 +132,33 @@ class Kupovina extends Component {
       if (this.props.korpa.length !== 0) {
         return (
           <div className="kupovina">
-            <p>Proizvodi koje elite da kupite</p>
-            {this.props.korpa.map(k => (
-              <div className="pored">
-                <Kupovinacard product={k} vrsta="korpa" remove={this.removeItem} poz={this.ponovo} vratiKolicinu={this.vrati} />
-              </div>
+            <div className="nazivKomponente"><h1 className="nazivKomponente">Korpa</h1></div>
+            
+            <table>
+              <tbody>
+                <tr >
+                <th>Artikal</th><th></th><th>Kolicina</th><th>Ukloni</th><th>Cena</th></tr>
+                </tbody>
+              
+              {this.props.korpa.map(k => (
+               
+               <Kupovinacard product={k} vrsta="korpa" remove={this.removeItem} poz={this.ponovo} vratiKolicinu={this.vrati} />
+                
 
             ))}
-            <h3 className="cena2tekst" >UKUPNO ZA PLACANJE : {this.props.cena} <span id="cen2">RSD</span></h3>
-           <button type="submit" className="dugmeKupi" onClick={this.placanje}>KUPI</button>
+            </table>
+            <hr/>
+            <div className="racun">
+              
+            <p className="cena2tekst" >Vas iznos : {this.props.cena} RSD</p></div><div></div>
+            <div className="dugmici">
+            <div className="dugmeZaNazad">
+            <button type="submit" className="dugmeVratiSeNazad" onClick={this.placanje}>Nastavi sa kupovinom</button>
+            </div>
+            <div className="dugmeZaNapred">
+           <button type="submit" className="dugmeKupi" onClick={this.placanje}>Zavrsi kupovinu</button>
+           </div>
+           </div>
           </div>
 
 

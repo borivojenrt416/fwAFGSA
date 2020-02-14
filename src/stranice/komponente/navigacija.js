@@ -16,16 +16,16 @@ class Navigacija extends Component{
         return(
             <div className="lista">
                 <ul className="flex-container">
-                    <Link to="/proizvodi/Desktop" ><li className={localStorage.getItem("tip")=="Desktop"?"act":""} >Desktop računari</li></Link>
-                    <Link to="/proizvodi/Monitori"  ><li className={localStorage.getItem("tip")=="Monitori"?"act":""}>Monitori</li></Link> 
-                    <Link to="/proizvodi/MaticnePloce"  ><li className={localStorage.getItem("tip")=="MaticnePloce"?"act":""}>Matične ploče</li></Link> 
-                    <Link to="/proizvodi/Procesori"  ><li className={localStorage.getItem("tip")=="Procesori"?"act":""}>Procesor</li></Link> 
-                    <Link to="/proizvodi/Memorije" ><li className={localStorage.getItem("tip")=="Memorije"?"act":""}>Memorije</li></Link> 
-                    <Link to="/proizvodi/GrafickeKarte"  ><li className={localStorage.getItem("tip")=="GrafickeKarte"?"act":""}>Grafičke kartice</li></Link> 
-                    <Link to="/proizvodi/HDD"  ><li className={localStorage.getItem("tip")=="HDD"?"act":""}>HDD</li></Link>
-                    <Link to="/proizvodi/SSD"  ><li className={localStorage.getItem("tip")=="SSD"?"act":""}>SSD</li></Link>
-                    <Link to="/proizvodi/Napajanja"  ><li className={localStorage.getItem("tip")=="Napajanja"?"act":""}>Napajanja</li></Link>
-                    <Link to="/proizvodi/Kucista"  ><li className={localStorage.getItem("tip")=="Kucista"?"act":""}>Kućišta</li></Link>  
+                    <Link to="/proizvodi/desktop" ><li className={localStorage.getItem("tip")=="desktop"?"act":""} >Desktop računari</li></Link>
+                    <Link to="/proizvodi/monitori"  ><li className={localStorage.getItem("tip")=="monitori"?"act":""}>Monitori</li></Link> 
+                    <Link to="/proizvodi/maticneploce"  ><li className={localStorage.getItem("tip")=="maticneploce"?"act":""}>Matične ploče</li></Link> 
+                    <Link to="/proizvodi/procesori"  ><li className={localStorage.getItem("tip")=="procesori"?"act":""}>Procesor</li></Link> 
+                    <Link to="/proizvodi/memorije" ><li className={localStorage.getItem("tip")=="memorije"?"act":""}>Memorije</li></Link> 
+                    <Link to="/proizvodi/grafickekarte"  ><li className={localStorage.getItem("tip")=="grafickekarte"?"act":""}>Grafičke kartice</li></Link> 
+                    <Link to="/proizvodi/hdd"  ><li className={localStorage.getItem("tip")=="hdd"?"act":""}>HDD</li></Link>
+                    <Link to="/proizvodi/ssd"  ><li className={localStorage.getItem("tip")=="ssd"?"act":""}>SSD</li></Link>
+                    <Link to="/proizvodi/napajanja"  ><li className={localStorage.getItem("tip")=="napajanja"?"act":""}>Napajanja</li></Link>
+                    <Link to="/proizvodi/kucista"  ><li className={localStorage.getItem("tip")=="kucista"?"act":""}>Kućišta</li></Link>  
                 </ul>
               
             </div>
