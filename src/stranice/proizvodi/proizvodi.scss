@@ -1,110 +1,106 @@
-.sve{
-  margin-top:20px;
-  width:100%;
+.sve {
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 
-  
+  .proiz {
+    width: 95%;
+    padding: 10px 0;
 
-  .proiz{
-    width: 100%;
-    padding:10px 0;
-    margin-bottom: 20px;
-    margin:auto;
-    .proiz1{
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 4px black;
+    .proiz1 {
       vertical-align: top;
-      width:80%;
+      width: 80%;
       margin-left: auto;
       margin-right: auto;
     }
-    .proiz1,.checkbox{
-      display:inline-block;
+    .proiz1,
+    .checkbox {
+      display: inline-block;
     }
-    .checkbox{
+    .checkbox {
       margin-top: 100px;
-      width:17%;
+      width: 20%;
       // vertical-align: top;
-   
-     .inside{
-       width:70%;
-       margin-left: auto;
-       margin-right: auto;
-      
-       font-size: 18px;
-       .nazivCheckboxova{
-         font-size: 22px;
-       }
-       input{
-       margin-top: 30px;
-       text-align: center;
+
+      .inside {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 15px;
+        .nazivCheckboxova {
+          font-size: 18px;
+        }
+        input {
+          margin-top: 30px;
+          text-align: center;
+        }
+        // label{
+        //  padding-top: 50px;
+        // }
       }
-      // label{
-      //  padding-top: 50px;
-      // }
-     }
-     input{
-       margin:auto;
-       width:19%;
-       text-align: left;
-     }
-  
-      
-        
-   
-    }
-  }
-  
-.podnaslov{
-    font-size:28px;
-}
-.pored{
-  display: inline-block;
-  margin:10px 0 0 0;
-
-
-}
-.kf{
-width:100%;
-.slct{
-  text-decoration: none;
-}
-form{
-  margin-left: auto;
-  margin-right: auto;
-  width:90%;
-  margin-bottom: 20px;
-  padding:5px 0;
-  .filtriranje{
-    text-align: center;
-    display:inline-block;
-    width:30%;
-    margin:5px auto;
-    select{
-      font-size: 16px;
-      padding:5px;
-    }
-    button{
-      border-radius: 5px;
-      padding:12px;
-      font-size: 16px;
-      background-color: rgb(41, 59, 82);
-      color:white;
-    }
-    button:hover{
-      background-color: rgb(108, 136, 173);
+      input {
+        margin: auto;
+        width: 19%;
+        text-align: left;
+      }
     }
   }
 
-}
+  .podnaslov {
+    font-size: 28px;
+  }
+  .pored {
+    display: inline-block;
+    margin: 10px 0 0 0;
+  }
+  .kf {
+    width: 100%;
+    .slct {
+      text-decoration: none;
+    }
+    form {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      margin-bottom: 20px;
+      padding: 5px 0;
+      .filtriranje {
+        text-align: center;
+        display: inline-block;
+        width: 30%;
+        margin: 5px auto;
+        select {
+          font-size: 16px;
+          padding: 5px;
+        }
+        button {
+          border-radius: 5px;
+          padding: 12px;
+          font-size: 16px;
+          background-color: rgb(41, 59, 82);
+          color: white;
+        }
+        button:hover {
+          background-color: rgb(108, 136, 173);
+        }
+      }
+    }
+  }
 }
 
+.hidden {
+  display: none;
 }
-
-.hidden{
-  display:none;
-}
-.hiddenButton{
+.hiddenButton {
   text-align: center;
-  button{
+  button {
     background-color: rgb(226, 226, 226);
-    color:black;
+    color: black;
   }
 }

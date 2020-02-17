@@ -25,3 +25,47 @@
 }
 
 }
+
+.burger{
+    display:none;
+    background-color: black;
+    li{
+        display: block;
+        color:rgb(173, 173, 173);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:22px;
+        font-weight: bold;
+        list-style-type: none;
+        text-decoration: none;
+        padding:10px 0 10px 20px ; 
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+    .lista{
+        display:none;
+    }
+    .burger{
+        display:block;
+    }
+    .shown{
+        display:block;
+    }
+    .hide{
+        display:none;
+    }
+    #p{
+        overflow: hidden;
+        height: 0px;
+        transition:2s;
+        color:white;
+    }
+
+    .mobileLink{
+        text-decoration: none;
+        margin: 20px 0;
+        opacity:0;
+        
+    }
+}

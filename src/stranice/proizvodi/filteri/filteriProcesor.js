@@ -29,7 +29,7 @@ export class FilteriProcesor extends Component {
                <label className="nazivCheckboxova">Proizvodjac</label><br/>
                <input type="checkbox" name="AMD" id="AMD" value="AMD" onChange={this.props.checkChanged}/>
                <label htmlFor="AMD">AMD</label><br/>
-               <input type="checkbox" name="INTEL" id="INTEL" value="INTEL" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="INTEL" id="INTEL" value="Intel" onChange={this.props.checkChanged}/>
                <label htmlFor="INTEL">INTEL</label><br/><br/><hr/>
                </div>
                <div className="inside">
@@ -69,17 +69,17 @@ export class FilteriProcesor extends Component {
                </div>
                <div className="inside">
                <label className="nazivCheckboxova">Broj jezgara</label><br/>
-               <input type="checkbox" name="2" id="2" value="2" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="2" id="2" value="2b" onChange={this.props.checkChanged}/>
                <label htmlFor="2">2</label><br/>
-               <input type="checkbox" name="4" id="4" value="4" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="4" id="4" value="4b" onChange={this.props.checkChanged}/>
                <label htmlFor="4">4</label><br/>
-               <input type="checkbox" name="6" id="6" value="6" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="6" id="6" value="6b" onChange={this.props.checkChanged}/>
                <label htmlFor="6">6</label><br/>
-               <input type="checkbox" name="8" id="8" value="8" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="8" id="8" value="8b" onChange={this.props.checkChanged}/>
                <label htmlFor="8">8</label><br/>
-               <input type="checkbox" name="24" id="24" value="24" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="24" id="24" value="24b" onChange={this.props.checkChanged}/>
                <label htmlFor="24">24</label><br/>
-               <input type="checkbox" name="32" id="32" value="32" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="32" id="32" value="32b" onChange={this.props.checkChanged}/>
                <label htmlFor="32">32</label><br/><br/><hr/>
                </div>
                <div className={this.state.hidden?"hidden":"visible"}>
@@ -90,17 +90,17 @@ export class FilteriProcesor extends Component {
                <div className={!this.state.hidden?"hidden":"visible"}>
                <div className="inside">
                <label className="nazivCheckboxova">Threads</label><br/>
-               <input type="checkbox" name="4" id="4" value="4" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="4" id="4" value="4t" onChange={this.props.checkChanged}/>
                <label htmlFor="4">4</label><br/>
-               <input type="checkbox" name="8" id="8" value="8" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="8" id="8" value="8t" onChange={this.props.checkChanged}/>
                <label htmlFor="8">8</label><br/>
-               <input type="checkbox" name="12" id="12" value="12" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="12" id="12" value="12t" onChange={this.props.checkChanged}/>
                <label htmlFor="12">12</label><br/>
-               <input type="checkbox" name="16" id="16" value="16" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="16" id="16" value="16t" onChange={this.props.checkChanged}/>
                <label htmlFor="16">16</label><br/>
-               <input type="checkbox" name="48" id="48" value="48" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="48" id="48" value="48t" onChange={this.props.checkChanged}/>
                <label htmlFor="48">48</label><br/>
-               <input type="checkbox" name="64" id="64" value="64" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="64" id="64" value="64t" onChange={this.props.checkChanged}/>
                <label htmlFor="64">64</label><br/><br/><hr/>
                </div>
                <div className="inside">

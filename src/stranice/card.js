@@ -9,13 +9,10 @@ import {vratiBroj} from "../actions/dodajUKorpu"
 export class Card extends Component {
     constructor(props){
         super(props)
-    
         this.state = {
              
         }
-    
-    
-    
+
     }
 
     dodaj=()=>{

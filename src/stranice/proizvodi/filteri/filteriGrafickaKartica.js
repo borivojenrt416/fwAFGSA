@@ -47,8 +47,6 @@ export class FilteriGrafickaKartica extends Component {
                <label htmlFor="Nvidia GeForce RTX 2070 SUPER">Nvidia GeForce RTX 2070 SUPER</label><br/>
                <input type="checkbox" name="AMD Radeon RX 570" id="AMD Radeon RX 570" value="AMD Radeon RX 570" onChange={this.props.checkChanged}/>
                <label htmlFor="AMD Radeon RX 570">AMD Radeon RX 570</label><br/>
-               <input type="checkbox" name="AMD Radeon RX 570" id="AMD Radeon RX 570" value="AMD Radeon RX 570" onChange={this.props.checkChanged}/>
-               <label htmlFor="AMD Radeon RX 570">AMD Radeon RX 570</label><br/>
                <input type="checkbox" name="AMD Radeon R7 240" id="AMD Radeon R7 240" value="AMD Radeon R7 240" onChange={this.props.checkChanged}/>
                <label htmlFor="AMD Radeon R7 240">AMD Radeon R7 240</label><br/>
                <input type="checkbox" name="AMD Radeon RX 590" id="AMD Radeon RX 590" value="AMD Radeon RX 590" onChange={this.props.checkChanged}/>

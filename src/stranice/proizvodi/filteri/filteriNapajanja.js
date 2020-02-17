@@ -36,7 +36,7 @@ export class FilteriNapajanja extends Component {
                </div>
                <div className="inside">
                  <label className="nazivCheckboxova">Gaming</label><br/>
-                 <input type="checkbox" name="Da" id="Da" value="Da" onChange={this.props.checkChanged}/>
+                 <input type="checkbox" name="Da" id="Da" value="QDa" onChange={this.props.checkChanged}/>
                <label htmlFor="Da">Da</label><br/>
                <input type="checkbox" name="Ne" id="Ne" value="Ne" onChange={this.props.checkChanged}/>
                <label htmlFor="Ne">Ne</label><br/><br/><hr/>
@@ -64,16 +64,16 @@ export class FilteriNapajanja extends Component {
                <label className="nazivCheckboxova">Tip napajanja</label><br/>
                <input type="checkbox" name="Modularno" id="Modularno" value="Modularno" onChange={this.props.checkChanged}/>
                <label htmlFor="Modularno">Modularno</label><br/>
-               <input type="checkbox" name="Standardno" id="Standardno" value="Standardno" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="Standardno" id="Standardno" value="QStandardno" onChange={this.props.checkChanged}/>
                <label htmlFor="Standardno">Standardno</label><br/>
-               <input type="checkbox" name="Semi-Modularno" id="Semi-Modularno" value="Semi-Modularno" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="Semi-Modularno" id="Semi-Modularno" value="QSemi-Modularno" onChange={this.props.checkChanged}/>
                <label htmlFor="Semi-Modularno">Semi-Modularno</label><br/><br/><hr/>
                </div>
                <div className="inside">
                <label className="nazivCheckboxova">Oblik</label><br/>
                <input type="checkbox" name="ATX (PS2)" id="ATX (PS2)" value="ATX (PS2)" onChange={this.props.checkChanged}/>
                <label htmlFor="ATX (PS2)">ATX (PS2)</label><br/>
-               <input type="checkbox" name="SFX" id="SFX" value="SFX" onChange={this.props.checkChanged}/>
+               <input type="checkbox" name="SFX" id="SFX" value="QSFX" onChange={this.props.checkChanged}/>
                <label htmlFor="SFX">SFX</label><br/><br/><hr/>
                </div>
               </div>

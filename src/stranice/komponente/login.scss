@@ -6,6 +6,7 @@
     display:flex;
     color:black;
     justify-content: center;
+    box-shadow: 0 0 4px black;
 
     .levoL,.desnoL{
         border:1px solid rgb(221, 221, 221);
@@ -14,6 +15,7 @@
         text-align: left;
         padding:1vw 1.5vw;
         vertical-align: top;
+       
         
     }
     .levoL{
@@ -28,7 +30,7 @@
         }
     }
     .desnoL{
-        background-color: rgb(235, 235, 235);
+        background-color: rgb(255, 255, 255);
         .forma{
             width: 100%;
             

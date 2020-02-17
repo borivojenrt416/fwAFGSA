@@ -2,6 +2,7 @@ import {FILTERI} from "./types";
 
 export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
     var noviNiz = [];
+    console.log(proizvodjacFilteri,niz)
     for (let f = 0; f < proizvodjacFilteri.length; f++) {
       for (let i = 0; i < niz.length; i++) {
         if (niz[i].Proizvodjac === proizvodjacFilteri[f]) {
@@ -143,6 +144,7 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
         }
       }
     }
+    console.log(niz3)
     return niz3;
   }
   
@@ -175,9 +177,10 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
             proizvodjacMonitoraFilter = true;
             proizvodjacFilteri.push(filteri[filterIndex]);
           }
-          if (filteri[filterIndex] === "SAMSUNG") {
+          if (filteri[filterIndex] === "ESAMSUNG") {
+            console.log(filteri[filterIndex])
             proizvodjacMonitoraFilter = true;
-            proizvodjacFilteri.push(filteri[filterIndex]);
+            proizvodjacFilteri.push("SAMSUNG");
           }
         }
         if (proizvodjacMonitoraFilter)

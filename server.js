@@ -49,6 +49,48 @@ app.get("/korisnici/sviproizvodi",(req,res)=>{
     
 // })
 
+app.get("/korisnici/pretraga",(req,res)=>{
+    // var rec = req.params.naziv.toLowerCase()
+    var nizTabela=[]
+    connection.query(`Select TABLE_NAME from information_schema.columns where column_name='Naziv'`,(err,result)=>{
+        if(err)
+        {   console.log(err)
+            return res.send(err)
+        }
+        else{
+            for(let i=0;i<result.length;i++)
+            nizTabela.push(result[i].TABLE_NAME)
+
+            console.log(nizTabela)
+
+            return res.json({
+                data:nizTabela
+            })
+        }
+    })
+    
+})
+
+app.get("/korisnici/pretragaProizvoda/:imeTabele/:nazivProizvoda",(req,res)=>{
+    var rec = req.params.nazivProizvoda.toLowerCase()
+    console.log(rec)
+    console.log(req.params.imeTabele)
+    connection.query(`SELECT * FROM ${req.params.imeTabele} WHERE lower(Naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
+                if(err)
+                {   
+                    console.log(err)
+                    return res.send(err)
+                }
+                else{
+                    console.log(result)
+                    return res.json({
+                        data:result
+                    })
+                }
+            })
+    
+})
+
 // app.get("/korisnici/pretraga/:naziv",(req,res)=>{
 //     var rec = req.params.naziv.toLowerCase()
 //     var tabele=['desktop','memorije','procesori']
@@ -71,43 +113,45 @@ app.get("/korisnici/sviproizvodi",(req,res)=>{
 //     }
 //     return rezultat;
 // })
-app.get("/korisnici/pretraga/:naziv",(req,res)=>{
-    var rec = req.params.naziv.toLowerCase()
-    var tabele=['desktop','memorije','procesori']
-    var rezultat=[]
-    var objekti=[]
-        connection.query(`Select TABLE_NAME from information_schema.columns where column_name='IdAll'`,(err,result)=>{
-            if(err)
-            {   console.log(err)
-                return res.send(err)
-            }
-            else{
-                console.log(result)
-                rezultat=result   
-            }
-            console.log(rezultat)
-            for(let i=0;i<rezultat.length;i++)
-            console.log(rezultat[i].TABLE_NAME) //vratio tabele
-            for(let i=0;i<rezultat.length;i++)
-            {
-                connection.query(`SELECT * FROM ${rezultat[i].TABLE_NAME} WHERE IdAll='desktop'`,(err,result)=>{
-                    if(err)
-                    {
-                        console.log(err)
-                        return res.send(err)
-                    }
-                    else{
-                        console.log(result)
-                        objekti.push(result)
-                    }
-                    console.log(objekti,objekti.length)
+
+
+// app.get("/korisnici/pretraga/:naziv",(req,res)=>{
+//     var rec = req.params.naziv.toLowerCase()
+//     var tabele=['desktop','memorije','procesori']
+//     var rezultat=[]
+//     var objekti=[]
+//         connection.query(`Select TABLE_NAME from information_schema.columns where column_name='IdAll'`,(err,result)=>{
+//             if(err)
+//             {   console.log(err)
+//                 return res.send(err)
+//             }
+//             else{
+//                 console.log(result)
+//                 rezultat=result   
+//             }
+//             console.log(rezultat)
+//             for(let i=0;i<rezultat.length;i++)
+//             console.log(rezultat[i].TABLE_NAME) //vratio tabele
+//             for(let i=0;i<rezultat.length;i++)
+//             {
+//                 connection.query(`SELECT * FROM ${rezultat[i].TABLE_NAME} WHERE IdAll='desktop'`,(err,result)=>{
+//                     if(err)
+//                     {
+//                         console.log(err)
+//                         return res.send(err)
+//                     }
+//                     else{
+//                         console.log(result)
+//                         objekti.push(result)
+//                     }
+//                     console.log(objekti,objekti.length)
                    
-                })
-            }
-            console.log(objekti,objekti.length)
-            for(let j=0;j<objekti.length;j++)
-            {
-                console.log(objekti[j].RowDataPacket)
+//                 })
+//             }
+//             console.log(objekti,objekti.length)
+//             for(let j=0;j<objekti.length;j++)
+//             {
+//                 console.log(objekti[j].RowDataPacket)
                 // connection.query(`SELECT * FROM ${objekti[j]} `,(err,result)=>{
                 //     if(err)
                 //     {
@@ -118,14 +162,14 @@ app.get("/korisnici/pretraga/:naziv",(req,res)=>{
                 //         console.log(result)
                 //     }
                 // })
-            }
+            // }
     
             // return objekti;
-        }) 
+//         }) 
         
       
 
-})
+// })
 //     connection.query(`SELECT * FROM monitori WHERE lower(Naziv) LIKE ?`,'%' + rec + '%',(err,result)=>{
 //         if(err)
 //         {   return res.send(err)
