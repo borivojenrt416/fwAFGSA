@@ -26,25 +26,17 @@ brisi=()=>{
 
 }
     render() 
-    
-    {
+    {console.log(this.props.product)
+        
         const {product} = this.props   
             return (
-                <div>
-                    <div className="card">
-                   <button type="button" id="" value="" className="brisi" onClick={this.brisi}><i className="far fa-window-close"></i></button>
-                   <div className="bezfloat">
-                    <img src={product.img}/>
-                        <h5 className="naziv">{product.naziv}</h5>
-                        <div className="linija">
-                        <hr />
-                        <p className="cena">Cena: {product.cena}  RSD</p>
-                        </div>
-                        <button type="submit" className="dodajUKorpu" id={product.naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i className="fas fa-cart-plus"></i></span></button>
-                        </div>
-                        <div className="detalj"><Link className="linkud" to={"/product/"+product.idpr}> DETALJI </Link></div>
-                    </div>
-                </div>
+                <tr>
+                <td><div className="ArtikalSlika"><img src={product.image}/></div></td>
+                <td><div className="ArtikalNaziv"><h5>{product.Naziv}</h5><h5>Proizvodjac : {product.Proizvodjac}</h5>
+                <button type="submit" className="dodajUKorpu" id={product.Naziv} onClick={this.dodaj}>DODAJ U KORPU<span id="korpa"><i className="fas fa-cart-plus"></i></span></button></div></td>
+                <td><button type="button" id="" value="" className="brisi" onClick={this.brisi}><i className="far fa-window-close"></i></button></td>
+                <td><div className="ArtikalCena"><p>Cena: {product.Cena.toLocaleString('en')}  RSD</p></div></td>
+            </tr>
             )
         }
          

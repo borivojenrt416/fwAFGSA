@@ -37,7 +37,7 @@ export class FilteriGornjiDekstopRacunari extends Component {
              <option value="dpreko200" >&gt; 200 000</option>
          </select></Link>
          </div> <div className="filtriranje">
-       <button type="submit" onClick={this.props.clear}>Ocisti filtere</button>
+       <button type="submit" onClick={this.props.clear}>Ponisti filtere</button>
         </div>
     </form>
     </div>

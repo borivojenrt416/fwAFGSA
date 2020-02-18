@@ -12,17 +12,28 @@ class Fav extends Component {
     };
   }
   render() {
+    console.log(this.props.omiljeno)
     if (this.props.omiljeno !== null) {
       if (this.props.omiljeno.length !== 0) {
         return (
           <div className="kupovina">
-            <p>Vaši omiljeni proizvodi</p>
+          <div className="nazivKomponente"><h1 className="nazivKomponente">Lista zelja</h1></div>
+
+          <table>
+            <tbody>
+              <tr >
+                <th>Artikal</th><th></th><th>Ukloni</th><th>Cena</th></tr>
+            </tbody>
+
             {this.props.omiljeno.map(k => (
-              <div className="pored">
-                <Omiljenocard product={k} vrsta="korpa" />
-              </div>
+
+              <Omiljenocard product={k}/>
+
+
             ))}
-          </div>
+          </table>
+        </div>
+
         );
       }
       else {

@@ -17,6 +17,7 @@ import LogIn from './stranice/komponente/login'
 import Register from './stranice/komponente/register'
 import Korisnik from './stranice/komponente/korisnik'
 import Footer from './stranice/komponente/footer/footer'
+import Narucivanje from './stranice/dostava/narucivanje'
 import Home from './stranice/glavno/home'
 
 class App extends React.Component {
@@ -72,6 +73,7 @@ componentDidMount()
        <Route exact path="/product/:IdAll/:Naziv" component={Product} />
        <Route exact path="/ukloniti/:id" component={Obrisan} />
        <Route exact path="/omiljeno" component={Fav}/>
+       <Route exact path="/dostava" render={props=><Narucivanje/>}/>
        <Route component={Error}/>
      </Switch>
      </div>

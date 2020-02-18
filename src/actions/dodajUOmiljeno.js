@@ -9,9 +9,10 @@ export const filtriraj=(niz,element)=>dispatch=>{
 }
 export const dodajUOmiljeno=(proizvod,postojeciniz)=>dispatch=>{
     var br=0;
+    console.log(proizvod.Naziv)
     for(let i=0;i<postojeciniz.length;i++)
     {
-      if(postojeciniz[i].naziv===proizvod.naziv)
+      if(postojeciniz[i].Naziv===proizvod.Naziv)
       {
         br=1;
       }
@@ -20,6 +21,7 @@ export const dodajUOmiljeno=(proizvod,postojeciniz)=>dispatch=>{
     {
         var niz = postojeciniz
         niz.push(proizvod)
+        console.log(niz)
         dispatch({
             type:DODAJUOMILJENO,
             payload:niz

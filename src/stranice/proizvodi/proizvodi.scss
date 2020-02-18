@@ -10,21 +10,32 @@
     margin-left: auto;
     margin-right: auto;
     margin: auto;
-    background-color: white;
-    box-shadow: 0 0 4px black;
+
     .proiz1 {
       vertical-align: top;
       width: 80%;
       margin-left: auto;
       margin-right: auto;
+      margin-left:5%;
+      .cards{
+        margin-left: auto;
+        margin-right: auto;
+        width:90%;
+        margin-bottom: 20px;
+      }
     }
     .proiz1,
     .checkbox {
       display: inline-block;
+      background-color: white;
+      box-shadow: 0 0 4px black;
+
     }
     .checkbox {
-      margin-top: 100px;
-      width: 20%;
+      padding-top:40px;
+      
+      width: 15%;
+      
       // vertical-align: top;
 
       .inside {
@@ -56,6 +67,7 @@
     font-size: 28px;
   }
   .pored {
+    width:20%;
     display: inline-block;
     margin: 10px 0 0 0;
   }
@@ -83,11 +95,11 @@
           border-radius: 5px;
           padding: 12px;
           font-size: 16px;
-          background-color: rgb(41, 59, 82);
-          color: white;
+          background-color: rgb(255, 255, 255);
+          color: rgb(143, 0, 0);
         }
         button:hover {
-          background-color: rgb(108, 136, 173);
+          color: rgb(255, 0, 0);
         }
       }
     }
@@ -102,5 +114,6 @@
   button {
     background-color: rgb(226, 226, 226);
     color: black;
+    margin-bottom: 20px;
   }
 }

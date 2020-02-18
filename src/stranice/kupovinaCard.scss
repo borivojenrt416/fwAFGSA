@@ -146,6 +146,17 @@ tr{
         h5{
             margin-top: 1px;
         }
+        button{
+            padding:14px;
+            background-color: rgb(41, 59, 82);
+          
+            border:0;
+            font-size:10px;
+        }
+        button:hover{
+            opacity: 1;
+            background-color: rgb(70, 100, 139);
+        }
       
     }
     .ArtikalSlika{

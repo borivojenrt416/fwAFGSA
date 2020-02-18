@@ -37,7 +37,7 @@ export class FilteriGornjiProcesor extends Component {
              <option value="dpreko150" >&gt; 150 000</option>
          </select></Link>
          </div> <div className="filtriranje">
-       <button type="submit" onClick={this.props.clear}>Ocisti filtere</button>
+       <button type="submit" onClick={this.props.clear}>Ponisti filtere</button>
         </div>
     </form>
     </div>

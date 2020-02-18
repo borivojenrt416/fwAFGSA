@@ -32,7 +32,7 @@ export const racunaj = (korpa)=>dispatch=>{
     var t = racunanje(korpa)
     console.log(t)
     dispatch({
-        type:RACUN,
+        type:KOLICINA,
         c:t
     })
 
@@ -69,7 +69,7 @@ export const kolicinaputacena=(naziv,kolicina,niz)=>dispatch=>{
     // console.log(ukupno)
     // var n = ukupno.toLocaleString()
     dispatch({
-        type:KOLICINA,
+        type:RACUN,
         c:n
     })
 

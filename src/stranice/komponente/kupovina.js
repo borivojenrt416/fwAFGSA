@@ -153,10 +153,10 @@ class Kupovina extends Component {
             <p className="cena2tekst" >Vas iznos : {this.props.cena} RSD</p></div><div></div>
             <div className="dugmici">
             <div className="dugmeZaNazad">
-            <button type="submit" className="dugmeVratiSeNazad" onClick={this.placanje}>Nastavi sa kupovinom</button>
+            <Link className="linkInsideButton" to="/home"><button type="submit" className="dugmeVratiSeNazad" onClick={this.placanje}>Nastavi sa kupovinom</button></Link>
             </div>
             <div className="dugmeZaNapred">
-           <button type="submit" className="dugmeKupi" onClick={this.placanje}>Zavrsi kupovinu</button>
+            <Link className="linkInsideButton" to="/dostava"><button type="submit" className="dugmeKupi" onClick={this.placanje}>Zavrsi sa kupovinom</button></Link>
            </div>
            </div>
           </div>

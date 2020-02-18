@@ -32,7 +32,9 @@ export class Card extends Component {
             return (
                 <div>
                     <div className="card">
+                        <div className="buttonForFav">
                    <button type="button" id="" value="" className="omiljeno" onClick={this.omiljeno}><i className="far fa-heart"></i></button>
+                   </div>
                    <div className="bezfloat">
                     <img src={product.image}/>
                     <div className="Naziv">
