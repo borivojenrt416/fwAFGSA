@@ -30,9 +30,23 @@ class Narucivanje extends Component {
     };
   }
 
+  componentWillMount(){
+    const {kupac} = this.state
+    if(this.props.korisnik!==null&&this.props.korisnik!==undefined)
+    {
+      console.log(this.props.korisnik[0].ime)
+      this.setState({
+        kupac:{...kupac,ime:this.props.korisnik[0].ime,
+                        prezime:this.props.korisnik[0].prezime,
+                        email:this.props.korisnik[0].email,
+                        telefon:this.props.korisnik[0].telefon}
+        })
+    }
+   
+  }
   componentDidMount() {
     this.props.racunaj(this.props.korpa);
-
+   
   }
 
   placanje=()=>{
@@ -123,6 +137,7 @@ class Narucivanje extends Component {
       kupac:{...kupac,telefon:value}
      })
    }
+  
   }
   changeDostava=(value,ident)=>{
     console.log(value,ident)
@@ -182,12 +197,13 @@ class Narucivanje extends Component {
   render() {
     console.log(this.props.korpa)
     console.log(this.props.cena)
+    console.log(this.props.korisnik)
     if (this.props.korpa !== null) {
       if (this.props.korpa.length !== 0) {
         return (
           <div className="dostava">
             <div className="nazivKomponente"><h1 className="nazivKomponente">Dostava</h1></div>
-            <Narucilac kupac={this.state.kupac} changeKupac={this.changeKupac}/>
+           <Narucilac kupac={this.state.kupac} changeKupac={this.changeKupac}/>
             <Dostava nacinDostave={this.changeNacinDostave} changeNacinDostava={this.changeDostava}/>
             <NacinPlacanja nacinPlacanja={this.state.nacinPlacanja} changeNacinPlacanja={this.changeNacinPlacanja} />
             <div className="racun">
@@ -195,7 +211,7 @@ class Narucivanje extends Component {
               <p className="cena2tekst" >Vas iznos : {this.props.cena} RSD</p></div><div></div>
             <div className="dugmici">
               <div className="dugmeZaNazad">
-                <Link className="linkInsideButton" to="#"><button type="submit" className="dugmeVratiSeNazad" onClick={this.placanje}>Vrati se u korpu</button></Link>
+                <Link className="linkInsideButton" to="#"><button type="submit" className="dugmeVratiSeNazad">Vrati se u korpu</button></Link>
               </div>
               <div className="dugmeZaNapred">
                 <Link className="linkInsideButton" to="#"><button type="submit" className="dugmeKupi" onClick={this.placanje}>Potvrdi kupovinu</button></Link>

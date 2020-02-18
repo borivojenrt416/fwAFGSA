@@ -393,10 +393,10 @@ export function filtrirajProizvodjaca(proizvodjacFilteri, niz) {
         //Ako ima radi se filtriranje za opseg cene
         if (cenaFilter !== "") {
           console.log("USAO U FILTRIRANJE");
-          niz3 = filtrirajPoCeni(cenaFilter,nizTh)
+          niz3 = filtrirajPoCeni(cenaFilter,nizRF)
         } 
         else {
-          niz3 = nizTh;
+          niz3 = nizRF;
           console.log(niz3);
         }
              //Sortiranje?

@@ -199,6 +199,16 @@ app.get("/korisnici/proizvod/:IdAll/:Naziv",(req,res)=>{
             })
         }
     })
+    connection.query(`UPDATE ${req.params.IdAll} SET Pregledi=Pregledi+1  WHERE Naziv=?`,[req.params.Naziv],(err,result)=>{
+        if(err)
+        {   
+            console.log(err)
+            return res.send(err)
+        }
+        else{
+            console.log("All done")
+        }
+    })
     
 })
 

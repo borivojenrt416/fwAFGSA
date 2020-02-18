@@ -45,7 +45,7 @@ this.props.poz()
                     <td><div className="ArtikalNaziv"><h5>{product.proizvod.Naziv}</h5><h5>Proizvodjac : {product.proizvod.Proizvodjac}</h5></div></td>
                     <td><div className="ArtikalKolicina"> <input id={"1".concat(JSON.stringify(product.proizvod.Naziv))} className="kolic" type="number"  value={this.props.product.kolicina} onChange={this.ok} min="1"/></div></td>
                     <td><button type="button" id="" value="" className="brisi" onClick={this.brisi}><i className="far fa-window-close"></i></button></td>
-                    <td><div className="ArtikalCena"><p>Cena: {(product.proizvod.Cena*product.kolicina).toLocaleString('en')}  RSD</p></div></td>
+                    <td><div className="ArtikalCena"><p>Cena: {(product.proizvod.Cena*product.kolicina).toLocaleString()}  RSD</p></div></td>
                 </tr>
             )
         }

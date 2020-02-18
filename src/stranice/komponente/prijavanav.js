@@ -9,9 +9,10 @@ export class Prijavanav extends Component {
             return (
                 <div>
                     <div className="prijavanav">
+                    <Link to="/kupovina"  ><li>{this.props.cena}RSD<i className="fas fa-shopping-cart"></i></li></Link>
                         <Link to="/login" ><li>Prijava</li></Link>
                         <Link to="/omiljeno" ><li><i className="far fa-heart"></i></li></Link>
-                        <Link to="/kupovina"  ><li><i className="fas fa-shopping-cart"></i>{this.props.broj}</li></Link>
+            
                     </div>
                 </div>
             )
@@ -33,7 +34,8 @@ export class Prijavanav extends Component {
 }
 const mapStateToProps = state => ({
     korisnik: state.korisnik.korisnik,
-    broj: state.broj.broj
+    broj: state.broj.broj,
+    cena: state.cena.cena
 })
 
 export default connect(mapStateToProps, {odjavi})(Prijavanav)
